@@ -11,7 +11,10 @@ const nextConfig = {
     ],
   },
   trailingSlash: true, // Optional: adds trailing slashes to URLs
-  // Turbopack is enabled by default in Next.js 16
+  // Turbopack configuration for yarn workspace
+  turbopack: {
+    root: __dirname,
+  },
   // React Compiler is enabled by default in Next.js 16
 }
 
