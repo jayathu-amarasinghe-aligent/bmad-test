@@ -48,8 +48,26 @@ const config: Config = {
         },
       },
       fontFamily: {
-        serif: ['var(--font-cormorant-garamond)', 'serif'],
-        sans: ['var(--font-inter)', 'sans-serif'],
+        serif: ['var(--font-cormorant-garamond)', 'Georgia', 'serif'],
+        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+        'firefly': 'firefly 3s ease-in-out infinite',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        firefly: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-6px)' },
+        },
+      },
+      transitionTimingFunction: {
+        'nature': 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
     },
   },
