@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMAD-site Design Direction Explorations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Matte Nature Palette */
+            --forest-500: #5a8a6d;
+            --forest-600: #4a6f5a;
+            --forest-100: #e3ede7;
+            --savanna-500: #8f7556;
+            --savanna-600: #735d45;
+            --savanna-100: #f0ebe2;
+            --neutral-50: #faf9f7;
+            --neutral-200: #e8e5e0;
+            --neutral-500: #87817a;
+            --neutral-600: #6b645d;
+            --neutral-800: #3a352f;
+
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--neutral-50);
+            color: var(--neutral-800);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 16px 24px;
+            z-index: 1000;
+            border-bottom: 1px solid var(--neutral-200);
+        }
+
+        .top-nav h1 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 8px;
+        }
+
+        .top-nav p {
+            font-size: 14px;
+            color: var(--neutral-600);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            margin-top: 12px;
+        }
+
+        .nav-links a {
+            color: var(--forest-600);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--forest-500);
+        }
+
+        /* Main Container */
+        .container {
+            margin-top: 120px;
+            padding: 0 24px 48px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .intro {
+            max-width: 800px;
+            margin: 0 auto 48px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neutral-800);
+            margin-bottom: 16px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            color: var(--neutral-600);
+            line-height: 1.8;
+        }
+
+        /* Design Direction Cards */
+        .directions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .direction-card {
+            background: white;
+            border: 1px solid var(--neutral-200);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .direction-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(58, 53, 47, 0.1);
+        }
+
+        .direction-preview {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            background: var(--neutral-50);
+            border-bottom: 1px solid var(--neutral-200);
+            overflow: hidden;
+        }
+
+        .direction-content {
+            padding: 24px;
+        }
+
+        .direction-content h3 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 12px;
+        }
+
+        .direction-content p {
+            font-size: 16px;
+            color: var(--neutral-600);
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+
+        .direction-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .tag {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background: var(--forest-100);
+            color: var(--forest-600);
+        }
+
+        .tag.savanna {
+            background: var(--savanna-100);
+            color: var(--savanna-600);
+        }
+
+        .pros-cons {
+            margin-top: 16px;
+        }
+
+        .pros-cons h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 8px;
+        }
+
+        .pros-cons ul {
+            list-style: none;
+            font-size: 14px;
+            color: var(--neutral-600);
+        }
+
+        .pros-cons li {
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .pros-cons li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--forest-500);
+            font-weight: 600;
+        }
+
+        .pros-cons.cons li:before {
+            content: '−';
+            color: var(--savanna-500);
+        }
+
+        /* Direction Previews */
+        .preview-1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(90, 138, 109, 0.1) 0%, rgba(250, 249, 247, 1) 100%);
+        }
+
+        .preview-1-content {
+            text-align: center;
+            padding: 24px;
+        }
+
+        .preview-1-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(to bottom, var(--neutral-200), var(--neutral-50));
+            margin-bottom: 16px;
+            border-radius: 4px;
+        }
+
+        .preview-1-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4px;
+        }
+
+        .preview-1-thumb {
+            height: 60px;
+            background: var(--neutral-200);
+            border-radius: 2px;
+        }
+
+        .preview-2 {
+            background: linear-gradient(to bottom, rgba(58, 53, 47, 0.8) 0%, rgba(58, 53, 47, 0.3) 100%), var(--neutral-200);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+        }
+
+        .preview-2-text {
+            color: white;
+            font-family: var(--font-serif);
+            font-size: 32px;
+            font-weight: 700;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .preview-2-cta {
+            margin-top: 12px;
+            padding: 12px 24px;
+            background: var(--forest-500);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 500;
+            width: fit-content;
+        }
+
+        .preview-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            padding: 24px;
+            background: white;
+        }
+
+        .preview-3-image {
+            background: var(--neutral-200);
+            border-radius: 4px;
+        }
+
+        .preview-3-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .preview-3-text h4 {
+            font-family: var(--font-serif);
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 8px;
+        }
+
+        .preview-3-text p {
+            font-size: 13px;
+            color: var(--neutral-600);
+            line-height: 1.6;
+        }
+
+        .preview-4 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            padding: 8px;
+            background: var(--neutral-50);
+        }
+
+        .preview-4-item {
+            aspect-ratio: 1;
+            background: var(--neutral-200);
+            border-radius: 4px;
+        }
+
+        .preview-5 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(143, 117, 86, 0.05) 0%, rgba(250, 249, 247, 1) 100%);
+            position: relative;
+        }
+
+        .preview-5-bg {
+            position: absolute;
+            inset: 0;
+            background: var(--neutral-200);
+            opacity: 0.3;
+        }
+
+        .preview-5-content {
+            position: relative;
+            text-align: center;
+            padding: 48px 24px;
+        }
+
+        .preview-5-content h4 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 16px;
+        }
+
+        .preview-5-nav {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 16px;
+        }
+
+        .preview-5-nav a {
+            font-size: 14px;
+            color: var(--neutral-600);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .preview-6 {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            background: white;
+        }
+
+        .preview-6-hero {
+            background: var(--neutral-200);
+        }
+
+        .preview-6-sidebar {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--neutral-50);
+        }
+
+        .preview-6-sidebar h4 {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 16px;
+        }
+
+        .preview-6-sidebar ul {
+            list-style: none;
+            font-size: 14px;
+        }
+
+        .preview-6-sidebar li {
+            padding: 8px 0;
+            color: var(--neutral-600);
+            border-bottom: 1px solid var(--neutral-200);
+        }
+
+        /* Evaluation Criteria */
+        .evaluation {
+            background: white;
+            border: 1px solid var(--neutral-200);
+            border-radius: 8px;
+            padding: 32px;
+            margin-top: 48px;
+        }
+
+        .evaluation h3 {
+            font-family: var(--font-serif);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--neutral-800);
+            margin-bottom: 24px;
+        }
+
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+        }
+
+        .criterion {
+            padding: 20px;
+            background: var(--neutral-50);
+            border-radius: 6px;
+        }
+
+        .criterion h4 {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--forest-600);
+            margin-bottom: 8px;
+        }
+
+        .criterion p {
+            font-size: 14px;
+            color: var(--neutral-600);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .directions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-3, .preview-6 {
+                grid-template-columns: 1fr;
+            }
+
+            .preview-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="top-nav">
+        <h1>BMAD-site Design Direction Explorations</h1>
+        <p>Exploring 6 different visual approaches for your wildlife photography portfolio</p>
+        <div class="nav-links">
+            <a href="#directions">View Directions</a>
+            <a href="#evaluation">Evaluation Criteria</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Design Direction Variations</h2>
+            <p>Each direction explores different ways to present your wildlife photography while maintaining our matte nature palette, calm aesthetic, and photography-first principles. Consider which approach best supports your goal of becoming the go-to wildlife portfolio.</p>
+        </div>
+
+        <div id="directions" class="directions-grid">
+            <!-- Direction 1: Gallery First -->
+            <div class="direction-card">
+                <div class="direction-preview preview-1">
+                    <div class="preview-1-content">
+                        <div class="preview-1-image"></div>
+                        <div class="preview-1-grid">
+                            <div class="preview-1-thumb"></div>
+                            <div class="preview-1-thumb"></div>
+                            <div class="preview-1-thumb"></div>
+                            <div class="preview-1-thumb"></div>
+                            <div class="preview-1-thumb"></div>
+                            <div class="preview-1-thumb"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="direction-content">
+                    <h3>Direction 1: Gallery First</h3>
+                    <div class="direction-meta">
+                        <span class="tag">Immediate Impact</span>
+                        <span class="tag">High Density</span>
+                        <span class="tag">Browse-Forward</span>
+                    </div>
+                    <p>Homepage IS the gallery. Featured image at top + immediate masonry grid below. Minimal navigation overlay. Photography dominates from first pixel.</p>
+
+                    <div class="pros-cons">
+                        <h4>Strengths:</h4>
+                        <ul>
+                            <li>Maximum photography visibility</li>
+                            <li>Immediate showcase of portfolio breadth</li>
+                            <li>Familiar Pinterest-like pattern</li>
+                            <li>Fast time-to-engagement</li>
+                        </ul>
+                    </div>
+
+                    <div class="pros-cons cons">
+                        <h4>Trade-offs:</h4>
+                        <ul>
+                            <li>Less focus on single hero moment</li>
+                            <li>May overwhelm with too many choices</li>
+                            <li>Harder to establish narrative/story</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 2: Hero Dominant -->
+            <div class="direction-card">
+                <div class="direction-preview preview-2">
+                    <div class="preview-2-text">Wildlife<br>Photography</div>
+                    <button class="preview-2-cta">Explore the Wild</button>
+                </div>
+                <div class="direction-content">
+                    <h3>Direction 2: Hero Dominant</h3>
+                    <div class="direction-meta">
+                        <span class="tag">Full-Screen Impact</span>
+                        <span class="tag savanna">Progressive Disclosure</span>
+                        <span class="tag">Cinematic</span>
+                    </div>
+                    <p>Full-screen time-adaptive hero fills 100vh. Navigation/CTA overlays appear after 3 seconds. Scroll reveals gallery. Maximum first impression impact.</p>
+
+                    <div class="pros-cons">
+                        <h4>Strengths:</h4>
+                        <ul>
+                            <li>Instant "wow" moment with single image</li>
+                            <li>Perfect for time-adaptive hero feature</li>
+                            <li>Clear visual hierarchy and storytelling</li>
+                            <li>Supports progressive disclosure pattern</li>
+                        </ul>
+                    </div>
+
+                    <div class="pros-cons cons">
+                        <h4>Trade-offs:</h4>
+                        <ul>
+                            <li>Requires scroll to see more work</li>
+                            <li>Success depends heavily on hero image quality</li>
+                            <li>Less portfolio breadth shown immediately</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 3: Storyteller -->
+            <div class="direction-card">
+                <div class="direction-preview preview-3">
+                    <div class="preview-3-image"></div>
+                    <div class="preview-3-text">
+                        <h4>Latest from the Wild</h4>
+                        <p>Behind-the-lens story appears prominently alongside featured image. Educational and engaging narrative.</p>
+                    </div>
+                </div>
+                <div class="direction-content">
+                    <h3>Direction 3: Storyteller</h3>
+                    <div class="direction-meta">
+                        <span class="tag savanna">Content-Rich</span>
+                        <span class="tag">Educational</span>
+                        <span class="tag savanna">Balanced Layout</span>
+                    </div>
+                    <p>Featured image + prominent narrative content (behind-the-lens stories, camera settings, location context) displayed side-by-side. Emphasizes educational value.</p>
+
+                    <div class="pros-cons">
+                        <h4>Strengths:</h4>
+                        <ul>
+                            <li>Appeals to photography enthusiasts</li>
+                            <li>Showcases expertise through storytelling</li>
+                            <li>Balanced visual + text content</li>
+                            <li>Differentiates from pure gallery portfolios</li>
+                        </ul>
+                    </div>
+
+                    <div class="pros-cons cons">
+                        <h4>Trade-offs:</h4>
+                        <ul>
+                            <li>More text could distract from images</li>
+                            <li>Requires content creation for each feature</li>
+                            <li>Less pure "photography dominates" aesthetic</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 4: Masonry Homepage -->
+            <div class="direction-card">
+                <div class="direction-preview preview-4">
+                    <div class="preview-4-item"></div>
+                    <div class="preview-4-item"></div>
+                    <div class="preview-4-item"></div>
+                    <div class="preview-4-item"></div>
+                    <div class="preview-4-item"></div>
+                    <div class="preview-4-item"></div>
+                    <div class="preview-4-item"></div>
+                    <div class="preview-4-item"></div>
+                    <div class="preview-4-item"></div>
+                </div>
+                <div class="direction-content">
+                    <h3>Direction 4: Masonry Homepage</h3>
+                    <div class="direction-meta">
+                        <span class="tag">Grid-Forward</span>
+                        <span class="tag savanna">No Single Hero</span>
+                        <span class="tag">Democratic Showcase</span>
+                    </div>
+                    <p>Skip single hero entirely. Homepage opens directly to masonry grid of best work (20-30 images). Minimal header with photographer name. Work speaks immediately.</p>
+
+                    <div class="pros-cons">
+                        <h4>Strengths:</h4>
+                        <ul>
+                            <li>Showcases portfolio breadth instantly</li>
+                            <li>All images get equal prominence</li>
+                            <li>Ultra-minimal UI approach</li>
+                            <li>Fast path to browsing full collection</li>
+                        </ul>
+                    </div>
+
+                    <div class="pros-cons cons">
+                        <h4>Trade-offs:</h4>
+                        <ul>
+                            <li>No single "hero moment" for impact</li>
+                            <li>Can't leverage time-adaptive hero feature</li>
+                            <li>May feel overwhelming/busy immediately</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 5: Minimal Navigator -->
+            <div class="direction-card">
+                <div class="direction-preview preview-5">
+                    <div class="preview-5-bg"></div>
+                    <div class="preview-5-content">
+                        <h4>Wildlife Photography<br>by [Photographer Name]</h4>
+                        <div class="preview-5-nav">
+                            <a href="#">Color</a>
+                            <a href="#">Black & White</a>
+                            <a href="#">About</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="direction-content">
+                    <h3>Direction 5: Minimal Navigator</h3>
+                    <div class="direction-meta">
+                        <span class="tag savanna">Typography-Led</span>
+                        <span class="tag">Elegant Restraint</span>
+                        <span class="tag savanna">Choice-Forward</span>
+                    </div>
+                    <p>Centered typography with subtle time-adaptive image background (low opacity/blur). Clear navigation choices presented upfront. Elegant, unhurried introduction.</p>
+
+                    <div class="pros-cons">
+                        <h4>Strengths:</h4>
+                        <ul>
+                            <li>Maximum elegance and sophistication</li>
+                            <li>Clear user choice (Color vs B&W)</li>
+                            <li>Can still use time-adaptive background</li>
+                            <li>Calm, unhurried first impression</li>
+                        </ul>
+                    </div>
+
+                    <div class="pros-cons cons">
+                        <h4>Trade-offs:</h4>
+                        <ul>
+                            <li>Less immediate photography impact</li>
+                            <li>Requires user decision before seeing work</li>
+                            <li>May feel too minimal/sparse</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direction 6: Split Experience -->
+            <div class="direction-card">
+                <div class="direction-preview preview-6">
+                    <div class="preview-6-hero"></div>
+                    <div class="preview-6-sidebar">
+                        <h4>Explore</h4>
+                        <ul>
+                            <li>Color Gallery</li>
+                            <li>Black & White</li>
+                            <li>Behind the Lens</li>
+                            <li>Social</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="direction-content">
+                    <h3>Direction 6: Split Experience</h3>
+                    <div class="direction-meta">
+                        <span class="tag">Asymmetric</span>
+                        <span class="tag savanna">Context-Rich</span>
+                        <span class="tag">Desktop-Optimized</span>
+                    </div>
+                    <p>Desktop: Hero image left (60-70%), navigation/context sidebar right. Mobile: Stacks vertically. Balances impact with clear navigation and context.</p>
+
+                    <div class="pros-cons">
+                        <h4>Strengths:</h4>
+                        <ul>
+                            <li>Strong visual impact + clear navigation</li>
+                            <li>Sidebar provides context and choices</li>
+                            <li>Asymmetric layout feels modern</li>
+                            <li>Good use of wide desktop screens</li>
+                        </ul>
+                    </div>
+
+                    <div class="pros-cons cons">
+                        <h4>Trade-offs:</h4>
+                        <ul>
+                            <li>Hero image smaller than full-screen options</li>
+                            <li>Desktop/mobile experience differs significantly</li>
+                            <li>Sidebar could compete with photography</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evaluation Criteria -->
+        <div id="evaluation" class="evaluation">
+            <h3>Evaluation Criteria</h3>
+            <p style="margin-bottom: 24px; color: var(--neutral-600);">As you explore the design directions, consider these factors to guide your decision:</p>
+
+            <div class="criteria-grid">
+                <div class="criterion">
+                    <h4>Layout Intuitiveness</h4>
+                    <p>Which information hierarchy matches your priorities? Does the layout guide visitors naturally to your best work and social conversion?</p>
+                </div>
+
+                <div class="criterion">
+                    <h4>Interaction Style</h4>
+                    <p>Which interaction style fits the "go-to portfolio" core experience? Does it support progressive discovery and calm browsing?</p>
+                </div>
+
+                <div class="criterion">
+                    <h4>Visual Impact</h4>
+                    <p>Which direction creates the strongest first impression? Does it achieve the instant "wow" moment within 5 seconds?</p>
+                </div>
+
+                <div class="criterion">
+                    <h4>Photography Dominance</h4>
+                    <p>Which approach best lets your photography speak for itself? Is the UI appropriately invisible?</p>
+                </div>
+
+                <div class="criterion">
+                    <h4>Time-Adaptive Hero</h4>
+                    <p>Which direction best leverages the time-adaptive hero feature? Is this novel element showcased effectively?</p>
+                </div>
+
+                <div class="criterion">
+                    <h4>Brand Alignment</h4>
+                    <p>Which direction best supports your calm, professional, inspired emotional goals? Does it feel distinctively "you"?</p>
+                </div>
+
+                <div class="criterion">
+                    <h4>Social Conversion</h4>
+                    <p>Which layout best supports the 20%+ social conversion goal? Clear path to follow without being pushy?</p>
+                </div>
+
+                <div class="criterion">
+                    <h4>Scalability</h4>
+                    <p>Which approach works across mobile and desktop? Does the experience remain strong on all devices?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-inter: Inter, sans-serif;
+  --font-cormorant-garamond: 'Cormorant Garamond', serif;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-inter), sans-serif;
+  }
+}

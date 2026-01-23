@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Gallery - BMAD Site Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Matte Nature Palette */
+            --forest-500: #5a8a6d;
+            --forest-600: #4a6f5a;
+            --forest-100: #e3ede7;
+            --savanna-500: #8f7556;
+            --savanna-600: #735d45;
+            --neutral-50: #faf9f7;
+            --neutral-200: #e8e5e0;
+            --neutral-500: #87817a;
+            --neutral-600: #6b645d;
+            --neutral-800: #3a352f;
+
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--neutral-50);
+            color: var(--neutral-800);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--neutral-200);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--neutral-600);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link.active {
+            color: var(--forest-600);
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--forest-500);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--forest-500);
+        }
+
+        /* Gallery Container */
+        .gallery-container {
+            max-width: 1800px;
+            margin: 0 auto;
+            padding: 48px 24px;
+        }
+
+        /* Large screens - wider container */
+        @media (min-width: 1920px) {
+            .gallery-container {
+                max-width: 2200px;
+                padding: 64px 48px;
+            }
+        }
+
+        .gallery-header {
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .gallery-header h1 {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--neutral-800);
+            margin-bottom: 8px;
+        }
+
+        .gallery-header p {
+            font-size: 16px;
+            color: var(--neutral-600);
+        }
+
+        /* Masonry Grid - Responsive columns */
+        .masonry-grid {
+            column-count: 4;
+            column-gap: 24px;
+        }
+
+        /* Extra large screens (2560px+) - 5 columns */
+        @media (min-width: 2560px) {
+            .masonry-grid {
+                column-count: 5;
+                column-gap: 32px;
+            }
+        }
+
+        /* Large screens (1920px-2559px) - 4 columns with larger gap */
+        @media (min-width: 1920px) and (max-width: 2559px) {
+            .masonry-grid {
+                column-count: 4;
+                column-gap: 32px;
+            }
+        }
+
+        /* Desktop (1400px-1919px) - 4 columns */
+        @media (min-width: 1400px) and (max-width: 1919px) {
+            .masonry-grid {
+                column-count: 4;
+                column-gap: 24px;
+            }
+        }
+
+        /* Medium desktop (1200px-1399px) - 3 columns */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .masonry-grid {
+                column-count: 3;
+                column-gap: 24px;
+            }
+        }
+
+        /* Tablet landscape (768px-1199px) - 3 columns */
+        @media (min-width: 768px) and (max-width: 1199px) {
+            .masonry-grid {
+                column-count: 3;
+                column-gap: 20px;
+            }
+        }
+
+        /* Tablet portrait (640px-767px) - 2 columns */
+        @media (min-width: 640px) and (max-width: 767px) {
+            .masonry-grid {
+                column-count: 2;
+                column-gap: 16px;
+            }
+        }
+
+        /* Mobile (< 640px) - 1 column */
+        @media (max-width: 639px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+
+        /* Gallery Item */
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 24px;
+            position: relative;
+            cursor: pointer;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: opacity 0.3s;
+        }
+
+        /* Skeleton Loader */
+        .skeleton {
+            background: linear-gradient(
+                90deg,
+                var(--neutral-200) 0%,
+                var(--neutral-100) 50%,
+                var(--neutral-200) 100%
+            );
+            background-size: 200% 100%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Hover Overlay */
+        .gallery-item-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(58, 53, 47, 0.95) 0%, rgba(58, 53, 47, 0.7) 60%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 16px;
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+
+        .gallery-item-info {
+            color: white;
+        }
+
+        .gallery-item-title {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item-location {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            opacity: 0.9;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .gallery-item-meta {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px 8px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+        }
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .meta-label {
+            opacity: 0.7;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .meta-value {
+            font-weight: 500;
+            font-size: 11px;
+        }
+
+        /* Icons (using simple unicode symbols) */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 14px;
+            height: 14px;
+            font-size: 12px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            animation: scaleIn 0.4s cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 90vh;
+            display: block;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox-nav.prev {
+            left: -80px;
+        }
+
+        .lightbox-nav.next {
+            right: -80px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-family: var(--font-sans);
+            font-size: 14px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .lightbox-metadata {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            max-width: 500px;
+            display: none;
+        }
+
+        .lightbox-metadata.active {
+            display: block;
+            animation: slideUp 0.3s cubic-bezier(0, 0, 0.2, 1);
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateX(-50%) translateY(10px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(-50%) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .lightbox-metadata h3 {
+            font-family: var(--font-serif);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .lightbox-metadata p {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .metadata-toggle {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .metadata-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .gallery-container {
+                padding: 32px 16px;
+            }
+
+            .masonry-grid {
+                column-gap: 12px;
+            }
+
+            .gallery-item {
+                margin-bottom: 12px;
+            }
+
+            .lightbox-nav.prev {
+                left: 16px;
+            }
+
+            .lightbox-nav.next {
+                right: 16px;
+            }
+
+            .lightbox-close {
+                top: 16px;
+                right: 16px;
+            }
+        }
+
+        /* Loading indicator */
+        .loading-more {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--neutral-500);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="homepage-preview.html" class="site-title">Wildlife Photography</a>
+            <nav class="nav-links">
+                <a href="#" class="nav-link active">Color Gallery</a>
+                <a href="#" class="nav-link">Black & White Gallery</a>
+                <a href="#" class="nav-link">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery -->
+    <div class="gallery-container">
+        <div class="gallery-header">
+            <h1>Color Gallery</h1>
+            <p>Vibrant moments from the wild</p>
+        </div>
+
+        <div class="masonry-grid" id="gallery">
+            <!-- Gallery items will be generated by JavaScript -->
+        </div>
+
+        <div class="loading-more">Scroll for more images...</div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">×</button>
+        <button class="lightbox-nav prev" onclick="navigateLightbox(-1)">‹</button>
+        <button class="lightbox-nav next" onclick="navigateLightbox(1)">›</button>
+
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+            <div class="lightbox-counter" id="lightboxCounter">1 of 20</div>
+            <button class="metadata-toggle" onclick="toggleMetadata()">i</button>
+            <div class="lightbox-metadata" id="lightboxMetadata">
+                <h3 id="metadataTitle">African Elephant</h3>
+                <p id="metadataInfo">
+                    Canon EOS R5 • 400mm • f/5.6 • 1/1000s • ISO 800<br>
+                    Amboseli National Park, Kenya • March 2024
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample image data (in real app, this would come from API)
+        const images = [
+            { id: 1, title: 'African Elephant', aspect: 1.5, iso: '800', aperture: 'f/5.6', shutter: '1/1000s', location: 'Amboseli, Kenya', cameraBody: 'Canon EOS R5', lens: '400mm', camera: 'Canon EOS R5 • 400mm • f/5.6 • 1/1000s • ISO 800', fullLocation: 'Amboseli National Park, Kenya • March 2024' },
+            { id: 2, title: 'Bengal Tiger', aspect: 0.75, iso: '1600', aperture: 'f/6.3', shutter: '1/2000s', location: 'Ranthambore, India', cameraBody: 'Sony A1', lens: '600mm', camera: 'Sony A1 • 600mm • f/6.3 • 1/2000s • ISO 1600', fullLocation: 'Ranthambore National Park, India • January 2024' },
+            { id: 3, title: 'Scarlet Macaw', aspect: 1.33, iso: '640', aperture: 'f/5.6', shutter: '1/1250s', location: 'Amazon, Brazil', cameraBody: 'Canon EOS R5', lens: '500mm', camera: 'Canon EOS R5 • 500mm • f/5.6 • 1/1250s • ISO 640', fullLocation: 'Amazon Rainforest, Brazil • February 2024' },
+            { id: 4, title: 'Mountain Gorilla', aspect: 1.2, iso: '3200', aperture: 'f/4.0', shutter: '1/500s', location: 'Bwindi, Uganda', cameraBody: 'Nikon Z9', lens: '300mm', camera: 'Nikon Z9 • 300mm • f/4.0 • 1/500s • ISO 3200', fullLocation: 'Bwindi Impenetrable Forest, Uganda • April 2024' },
+            { id: 5, title: 'Snow Leopard', aspect: 1.6, iso: '2500', aperture: 'f/5.6', shutter: '1/1600s', location: 'Hemis, India', cameraBody: 'Canon EOS R5', lens: '600mm', camera: 'Canon EOS R5 • 600mm • f/5.6 • 1/1600s • ISO 2500', fullLocation: 'Hemis National Park, India • November 2023' },
+            { id: 6, title: 'Polar Bear', aspect: 1.1, iso: '800', aperture: 'f/5.6', shutter: '1/2000s', location: 'Svalbard, Norway', cameraBody: 'Nikon Z9', lens: '500mm', camera: 'Nikon Z9 • 500mm • f/5.6 • 1/2000s • ISO 800', fullLocation: 'Svalbard, Norway • September 2023' },
+            { id: 7, title: 'Cheetah', aspect: 1.4, iso: '400', aperture: 'f/4.0', shutter: '1/3200s', location: 'Maasai Mara, Kenya', cameraBody: 'Sony A1', lens: '400mm', camera: 'Sony A1 • 400mm • f/4.0 • 1/3200s • ISO 400', fullLocation: 'Maasai Mara, Kenya • July 2024' },
+            { id: 8, title: 'Orangutan', aspect: 0.8, iso: '2000', aperture: 'f/4.0', shutter: '1/800s', location: 'Borneo, Indonesia', cameraBody: 'Canon EOS R5', lens: '300mm', camera: 'Canon EOS R5 • 300mm • f/4.0 • 1/800s • ISO 2000', fullLocation: 'Tanjung Puting, Indonesia • May 2024' },
+            { id: 9, title: 'Emperor Penguin', aspect: 0.67, iso: '640', aperture: 'f/4.0', shutter: '1/1000s', location: 'Antarctica', cameraBody: 'Nikon Z9', lens: '200mm', camera: 'Nikon Z9 • 200mm • f/4.0 • 1/1000s • ISO 640', fullLocation: 'Antarctica • December 2023' },
+            { id: 10, title: 'Red Panda', aspect: 1.25, iso: '1600', aperture: 'f/4.5', shutter: '1/640s', location: 'Nepal', cameraBody: 'Sony A1', lens: '300mm', camera: 'Sony A1 • 300mm • f/4.5 • 1/640s • ISO 1600', fullLocation: 'Eastern Himalayas, Nepal • March 2024' },
+            { id: 11, title: 'African Lion', aspect: 1.5, iso: '800', aperture: 'f/5.6', shutter: '1/1250s', location: 'Serengeti, Tanzania', cameraBody: 'Canon EOS R5', lens: '500mm', camera: 'Canon EOS R5 • 500mm • f/5.6 • 1/1250s • ISO 800', fullLocation: 'Serengeti National Park, Tanzania • August 2024' },
+            { id: 12, title: 'Giant Panda', aspect: 1.1, iso: '1600', aperture: 'f/5.0', shutter: '1/500s', location: 'Sichuan, China', cameraBody: 'Nikon Z9', lens: '400mm', camera: 'Nikon Z9 • 400mm • f/5.0 • 1/500s • ISO 1600', fullLocation: 'Sichuan Province, China • October 2023' },
+            { id: 13, title: 'Jaguar', aspect: 1.3, iso: '1250', aperture: 'f/6.3', shutter: '1/1600s', location: 'Pantanal, Brazil', cameraBody: 'Sony A1', lens: '600mm', camera: 'Sony A1 • 600mm • f/6.3 • 1/1600s • ISO 1250', fullLocation: 'Pantanal, Brazil • June 2024' },
+            { id: 14, title: 'Blue Morpho Butterfly', aspect: 1.0, iso: '400', aperture: 'f/2.8', shutter: '1/400s', location: 'Costa Rica', cameraBody: 'Canon EOS R5', lens: '100mm Macro', camera: 'Canon EOS R5 • 100mm Macro • f/2.8 • 1/400s • ISO 400', fullLocation: 'Costa Rica • April 2024' },
+            { id: 15, title: 'Humpback Whale', aspect: 1.6, iso: '400', aperture: 'f/5.6', shutter: '1/2000s', location: 'Tonga', cameraBody: 'Nikon Z9', lens: '200mm', camera: 'Nikon Z9 • 200mm • f/5.6 • 1/2000s • ISO 400', fullLocation: 'Tonga • August 2023' },
+            { id: 16, title: 'Arctic Fox', aspect: 1.2, iso: '1600', aperture: 'f/5.6', shutter: '1/1000s', location: 'Iceland', cameraBody: 'Sony A1', lens: '400mm', camera: 'Sony A1 • 400mm • f/5.6 • 1/1000s • ISO 1600', fullLocation: 'Iceland • February 2024' },
+            { id: 17, title: 'Toucan', aspect: 0.75, iso: '800', aperture: 'f/5.6', shutter: '1/800s', location: 'Amazon, Peru', cameraBody: 'Canon EOS R5', lens: '500mm', camera: 'Canon EOS R5 • 500mm • f/5.6 • 1/800s • ISO 800', fullLocation: 'Amazon Rainforest, Peru • May 2024' },
+            { id: 18, title: 'Leopard Seal', aspect: 1.4, iso: '640', aperture: 'f/4.5', shutter: '1/1250s', location: 'Antarctica', cameraBody: 'Nikon Z9', lens: '300mm', camera: 'Nikon Z9 • 300mm • f/4.5 • 1/1250s • ISO 640', fullLocation: 'Antarctica • January 2024' },
+            { id: 19, title: 'Komodo Dragon', aspect: 1.5, iso: '800', aperture: 'f/5.0', shutter: '1/640s', location: 'Komodo, Indonesia', cameraBody: 'Sony A1', lens: '300mm', camera: 'Sony A1 • 300mm • f/5.0 • 1/640s • ISO 800', fullLocation: 'Komodo Island, Indonesia • September 2024' },
+            { id: 20, title: 'Golden Eagle', aspect: 0.9, iso: '640', aperture: 'f/5.6', shutter: '1/2500s', location: 'Scotland, UK', cameraBody: 'Canon EOS R5', lens: '600mm', camera: 'Canon EOS R5 • 600mm • f/5.6 • 1/2500s • ISO 640', fullLocation: 'Scottish Highlands, UK • November 2023' },
+        ];
+
+        let currentLightboxIndex = 0;
+
+        // Determine image size based on screen width
+        function getImageSize() {
+            const width = window.innerWidth;
+            if (width >= 2560) return 1200; // Extra large screens
+            if (width >= 1920) return 1000; // Large screens
+            if (width >= 1400) return 800;  // Desktop
+            if (width >= 768) return 600;   // Tablet
+            return 500;                     // Mobile
+        }
+
+        // Generate gallery items
+        function generateGallery() {
+            const gallery = document.getElementById('gallery');
+            const imageSize = getImageSize();
+
+            images.forEach((img, index) => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.onclick = () => openLightbox(index);
+
+                // Create skeleton loader
+                const skeleton = document.createElement('div');
+                skeleton.className = 'skeleton';
+                skeleton.style.aspectRatio = img.aspect;
+                skeleton.style.width = '100%';
+                skeleton.style.borderRadius = '4px';
+
+                // Create actual image (simulated with placeholder) - responsive sizing
+                const image = document.createElement('img');
+                const imageHeight = Math.round(imageSize / img.aspect);
+                image.src = `https://placehold.co/${imageSize}x${imageHeight}/5a8a6d/ffffff?text=${encodeURIComponent(img.title)}`;
+                image.alt = img.title;
+                image.loading = 'lazy';
+                image.style.opacity = '0';
+
+                // Simulate image loading
+                setTimeout(() => {
+                    skeleton.remove();
+                    image.style.opacity = '1';
+                }, Math.random() * 1000 + 500);
+
+                // Create overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'gallery-item-overlay';
+                overlay.innerHTML = `
+                    <div class="gallery-item-info">
+                        <div class="gallery-item-title">${img.title}</div>
+                        <div class="gallery-item-location">
+                            <span class="icon">📍</span>
+                            ${img.location}
+                        </div>
+                        <div class="gallery-item-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Camera</span>
+                                <span class="meta-value">${img.cameraBody}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Lens</span>
+                                <span class="meta-value">${img.lens}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">ISO</span>
+                                <span class="meta-value">${img.iso}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Aperture</span>
+                                <span class="meta-value">${img.aperture}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Shutter</span>
+                                <span class="meta-value">${img.shutter}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                item.appendChild(skeleton);
+                item.appendChild(image);
+                item.appendChild(overlay);
+                gallery.appendChild(item);
+            });
+        }
+
+        // Lightbox functions
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightbox();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.getElementById('lightboxMetadata').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function navigateLightbox(direction) {
+            currentLightboxIndex += direction;
+            if (currentLightboxIndex < 0) currentLightboxIndex = images.length - 1;
+            if (currentLightboxIndex >= images.length) currentLightboxIndex = 0;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const img = images[currentLightboxIndex];
+            document.getElementById('lightboxImage').src = `https://placehold.co/1600x${Math.round(1600 / img.aspect)}/5a8a6d/ffffff?text=${encodeURIComponent(img.title)}`;
+            document.getElementById('lightboxImage').alt = img.title;
+            document.getElementById('lightboxCounter').textContent = `${currentLightboxIndex + 1} of ${images.length}`;
+            document.getElementById('metadataTitle').textContent = img.title;
+            document.getElementById('metadataInfo').innerHTML = `${img.camera}<br>${img.location}`;
+        }
+
+        function toggleMetadata() {
+            document.getElementById('lightboxMetadata').classList.toggle('active');
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
+
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') navigateLightbox(-1);
+            if (e.key === 'ArrowRight') navigateLightbox(1);
+            if (e.key === 'i' || e.key === 'I') toggleMetadata();
+        });
+
+        // Close lightbox on background click
+        document.getElementById('lightbox').addEventListener('click', (e) => {
+            if (e.target.id === 'lightbox') {
+                closeLightbox();
+            }
+        });
+
+        // Generate gallery on load
+        generateGallery();
+    </script>
+</body>
+</html>

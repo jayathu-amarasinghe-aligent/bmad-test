@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Photography - BMAD Site Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Matte Nature Palette */
+            --forest-500: #5a8a6d;
+            --forest-600: #4a6f5a;
+            --savanna-500: #8f7556;
+            --savanna-600: #735d45;
+            --neutral-50: #faf9f7;
+            --neutral-600: #6b645d;
+            --neutral-800: #3a352f;
+
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--neutral-50);
+            color: var(--neutral-800);
+            line-height: 1.6;
+        }
+
+        /* Homepage - Direction 5: Minimal Navigator */
+        .homepage {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Time-adaptive background */
+        .background-image {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(90, 138, 109, 0.05) 0%, rgba(143, 117, 86, 0.03) 100%);
+            z-index: 0;
+        }
+
+        /* Simulated time-adaptive blur effect */
+        .background-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d4cfc7" width="1200" height="800"/><circle cx="300" cy="200" r="80" fill="%23a3c4af" opacity="0.3"/><circle cx="900" cy="500" r="120" fill="%23c9b89d" opacity="0.2"/><path d="M0,600 Q300,550 600,580 T1200,600 L1200,800 L0,800 Z" fill="%235a8a6d" opacity="0.15"/></svg>');
+            background-size: cover;
+            background-position: center;
+            filter: blur(40px);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 48px 24px;
+            max-width: 600px;
+        }
+
+        /* Photographer name */
+        .photographer-name {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 8vw, 48px);
+            font-weight: 700;
+            color: var(--neutral-800);
+            margin-bottom: 16px;
+            letter-spacing: 0.02em;
+        }
+
+        /* Tagline */
+        .tagline {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            color: var(--neutral-600);
+            margin-bottom: 48px;
+            font-weight: 300;
+            letter-spacing: 0.01em;
+        }
+
+        /* Navigation choices */
+        .navigation {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            margin-bottom: 48px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            font-weight: 400;
+            text-decoration: none;
+            padding: 0;
+            border: none;
+            background: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Underline effect on hover */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.color {
+            color: var(--forest-600);
+        }
+
+        .nav-link.color::after {
+            background: var(--forest-500);
+        }
+
+        .nav-link.color:hover {
+            color: var(--forest-500);
+        }
+
+        .nav-link.bw {
+            color: var(--savanna-600);
+        }
+
+        .nav-link.bw::after {
+            background: var(--savanna-500);
+        }
+
+        .nav-link.bw:hover {
+            color: var(--savanna-500);
+        }
+
+        .nav-link.about {
+            color: var(--neutral-600);
+        }
+
+        .nav-link.about::after {
+            background: var(--neutral-600);
+        }
+
+        .nav-link.about:hover {
+            color: var(--neutral-800);
+        }
+
+        /* Social icons */
+        .social-icons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--neutral-600);
+            text-decoration: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(107, 100, 93, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 20px;
+        }
+
+        .social-link:hover {
+            color: var(--forest-600);
+            background: rgba(90, 138, 109, 0.1);
+            border-color: var(--forest-500);
+            transform: translateY(-4px);
+            animation: firefly 3s ease-in-out infinite;
+        }
+
+        /* Firefly animation */
+        @keyframes firefly {
+            0%, 100% {
+                opacity: 0.7;
+                transform: translateY(-4px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-8px);
+            }
+        }
+
+        /* Time indicator (for demo) */
+        .time-indicator {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            font-family: var(--font-sans);
+            font-size: 12px;
+            color: var(--neutral-600);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(107, 100, 93, 0.2);
+            z-index: 10;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .photographer-name {
+                font-size: 36px;
+            }
+
+            .tagline {
+                font-size: 16px;
+            }
+
+            .navigation {
+                gap: 12px;
+            }
+
+            .nav-link {
+                font-size: 16px;
+                padding: 14px 24px;
+            }
+
+            .content {
+                padding: 32px 16px;
+            }
+        }
+
+        /* Demo: Simulate time change button */
+        .demo-controls {
+            position: absolute;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            display: flex;
+            gap: 8px;
+        }
+
+        .demo-button {
+            font-family: var(--font-sans);
+            font-size: 12px;
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid var(--neutral-600);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .demo-button:hover {
+            background: var(--forest-500);
+            color: white;
+            border-color: var(--forest-500);
+        }
+
+        .demo-button.active {
+            background: var(--forest-600);
+            color: white;
+            border-color: var(--forest-600);
+        }
+    </style>
+</head>
+<body>
+    <div class="homepage">
+        <!-- Time indicator (demo) -->
+        <div class="time-indicator" id="timeIndicator">
+            Time: Midday ☀️
+        </div>
+
+        <!-- Time-adaptive background -->
+        <div class="background-image" id="backgroundImage"></div>
+
+        <!-- Centered content -->
+        <div class="content">
+            <h1 class="photographer-name">Wildlife Photography</h1>
+            <p class="tagline">Capturing the untamed beauty of nature</p>
+
+            <nav class="navigation">
+                <a href="#" class="nav-link color">Color Gallery</a>
+                <a href="#" class="nav-link bw">Black & White Gallery</a>
+                <a href="#" class="nav-link about">About</a>
+            </nav>
+
+            <div class="social-icons">
+                <a href="#" class="social-link" title="Instagram">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" title="Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                    </svg>
+                </a>
+                <a href="#" class="social-link" title="Email">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Demo controls -->
+        <div class="demo-controls">
+            <button class="demo-button" onclick="changeTime('dawn')">Dawn 🌅</button>
+            <button class="demo-button active" onclick="changeTime('midday')">Midday ☀️</button>
+            <button class="demo-button" onclick="changeTime('dusk')">Dusk 🌇</button>
+            <button class="demo-button" onclick="changeTime('night')">Night 🌙</button>
+        </div>
+    </div>
+
+    <script>
+        function changeTime(time) {
+            const bg = document.getElementById('backgroundImage');
+            const indicator = document.getElementById('timeIndicator');
+            const buttons = document.querySelectorAll('.demo-button');
+
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Color schemes for different times of day
+            const timeSchemes = {
+                dawn: {
+                    gradient: 'linear-gradient(135deg, rgba(143, 117, 86, 0.15) 0%, rgba(90, 138, 109, 0.08) 100%)',
+                    label: 'Dawn 🌅',
+                    svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23e0d5c3" width="1200" height="800"/><circle cx="200" cy="150" r="60" fill="%23c9b89d" opacity="0.4"/><circle cx="1000" cy="600" r="100" fill="%23a3c4af" opacity="0.2"/><path d="M0,500 Q300,480 600,500 T1200,520 L1200,800 L0,800 Z" fill="%238f7556" opacity="0.2"/></svg>',
+                    textColor: '#735d45',      // Darker savanna for warmth
+                    taglineColor: '#8f7556'    // Savanna-500 for subtitle
+                },
+                midday: {
+                    gradient: 'linear-gradient(135deg, rgba(90, 138, 109, 0.05) 0%, rgba(143, 117, 86, 0.03) 100%)',
+                    label: 'Midday ☀️',
+                    svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d4cfc7" width="1200" height="800"/><circle cx="300" cy="200" r="80" fill="%23a3c4af" opacity="0.3"/><circle cx="900" cy="500" r="120" fill="%23c9b89d" opacity="0.2"/><path d="M0,600 Q300,550 600,580 T1200,600 L1200,800 L0,800 Z" fill="%235a8a6d" opacity="0.15"/></svg>',
+                    textColor: '#3a352f',      // Default neutral-800
+                    taglineColor: '#6b645d'    // Default neutral-600
+                },
+                dusk: {
+                    gradient: 'linear-gradient(135deg, rgba(143, 117, 86, 0.12) 0%, rgba(90, 138, 109, 0.05) 100%)',
+                    label: 'Dusk 🌇',
+                    svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23c9b89d" width="1200" height="800"/><circle cx="100" cy="100" r="50" fill="%238f7556" opacity="0.5"/><circle cx="800" cy="400" r="140" fill="%23a3c4af" opacity="0.15"/><path d="M0,550 Q400,520 800,540 T1200,560 L1200,800 L0,800 Z" fill="%23735d45" opacity="0.25"/></svg>',
+                    textColor: '#483a2c',      // Darker earth tone (savanna-800)
+                    taglineColor: '#735d45'    // Savanna-600
+                },
+                night: {
+                    gradient: 'linear-gradient(135deg, rgba(58, 53, 47, 0.15) 0%, rgba(90, 138, 109, 0.08) 100%)',
+                    label: 'Night 🌙',
+                    svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23524c46" width="1200" height="800"/><circle cx="900" cy="150" r="40" fill="%23faf9f7" opacity="0.6"/><circle cx="200" cy="300" r="2" fill="%23ffffff" opacity="0.8"/><circle cx="400" cy="200" r="2" fill="%23ffffff" opacity="0.8"/><circle cx="700" cy="250" r="2" fill="%23ffffff" opacity="0.8"/><path d="M0,650 Q300,630 600,650 T1200,670 L1200,800 L0,800 Z" fill="%233a352f" opacity="0.3"/></svg>',
+                    textColor: '#d4cfc7',      // Lighter neutral-300 for contrast
+                    taglineColor: '#aea89f'    // Neutral-400 for subtitle
+                }
+            };
+
+            const scheme = timeSchemes[time];
+            bg.style.background = scheme.gradient;
+            bg.querySelector('::before') ? null : bg.innerHTML = '';
+
+            const beforeStyle = document.createElement('style');
+            beforeStyle.textContent = `
+                .background-image::before {
+                    background-image: url('data:image/svg+xml,${scheme.svg}');
+                }
+            `;
+            document.head.appendChild(beforeStyle);
+
+            indicator.textContent = `Time: ${scheme.label}`;
+
+            // Update text colors based on time of day
+            const photographerName = document.querySelector('.photographer-name');
+            const tagline = document.querySelector('.tagline');
+
+            photographerName.style.color = scheme.textColor;
+            tagline.style.color = scheme.taglineColor;
+
+            // Set active button
+            event.target.classList.add('active');
+        }
+
+        // Simulate actual time of day on load
+        function setTimeBasedBackground() {
+            const hour = new Date().getHours();
+            let timeOfDay;
+
+            if (hour >= 5 && hour < 10) {
+                timeOfDay = 'dawn';
+            } else if (hour >= 10 && hour < 17) {
+                timeOfDay = 'midday';
+            } else if (hour >= 17 && hour < 20) {
+                timeOfDay = 'dusk';
+            } else {
+                timeOfDay = 'night';
+            }
+
+            // Auto-select based on real time (optional)
+            // changeTime(timeOfDay);
+        }
+
+        // Run on page load
+        setTimeBasedBackground();
+    </script>
+</body>
+</html>
