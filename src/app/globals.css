@@ -1,14 +1,82 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  --font-inter: Inter, sans-serif;
-  --font-cormorant-garamond: 'Cormorant Garamond', serif;
+@theme {
+  /* Custom color palette */
+  --color-forest-50: #f0f7f4;
+  --color-forest-100: #dceee5;
+  --color-forest-200: #b9dccb;
+  --color-forest-300: #a3c4af;
+  --color-forest-400: #5fa687;
+  --color-forest-500: #5a8a6d;
+  --color-forest-600: #4a6f5a;
+  --color-forest-700: #255843;
+  --color-forest-800: #1f4636;
+  --color-forest-900: #1b3a2d;
+
+  --color-savanna-50: #faf8f3;
+  --color-savanna-100: #f3ede0;
+  --color-savanna-200: #e7dac0;
+  --color-savanna-300: #d6bf97;
+  --color-savanna-400: #c5a26e;
+  --color-savanna-500: #8f7556;
+  --color-savanna-600: #735d45;
+  --color-savanna-700: #8e5d3c;
+  --color-savanna-800: #483a2c;
+  --color-savanna-900: #5f402f;
+
+  --color-neutral-50: #faf9f7;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4cfc7;
+  --color-neutral-400: #aea89f;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #6b645d;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #3a352f;
+  --color-neutral-900: #171717;
+
+  /* Override default font families to match mockup exactly */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
 }
 
 @layer base {
-  html {
-    font-family: var(--font-inter), sans-serif;
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: #faf9f7;
+    color: #3a352f;
+  }
+}
+
+@layer utilities {
+  /* Custom nav link underline animation */
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    width: 0;
+    height: 0.125rem;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Firefly hover animation for social links */
+  @keyframes firefly {
+    0%, 100% {
+      opacity: 0.7;
+      transform: translateY(-4px);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-8px);
+    }
+  }
+
+  .hover-firefly:hover {
+    animation: firefly 3s ease-in-out infinite;
   }
 }
