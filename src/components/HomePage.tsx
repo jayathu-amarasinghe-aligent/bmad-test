@@ -2,21 +2,20 @@
 
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { useTimeOfDay } from '@/hooks/useTimeOfDay'
 
 const TIME_BACKGROUNDS = {
   dawn: {
-    imageUrl: 'https://placehold.co/1920x1080/e0d5c3/735d45?text=Dawn+Wildlife',
+    imageUrl: '/homePage/dawn.jpg',
   },
   midday: {
-    imageUrl: 'https://placehold.co/1920x1080/d4cfc7/3a352f?text=Midday+Wildlife',
+    imageUrl: '/homePage/midday.jpg',
   },
   dusk: {
-    imageUrl: 'https://placehold.co/1920x1080/c9b89d/735d45?text=Dusk+Wildlife',
+    imageUrl: '/homePage/dusk.jpg',
   },
   night: {
-    imageUrl: 'https://placehold.co/1920x1080/524c46/d4cfc7?text=Night+Wildlife',
+    imageUrl: '/homePage/night.jpg',
   },
 }
 
@@ -43,8 +42,6 @@ export function HomePage() {
     return () => clearTimeout(timer)
   }, [])
 
-  const background = TIME_BACKGROUNDS[timeOfDay]
-
   const timeLabels = {
     dawn: 'Dawn 🌅',
     midday: 'Midday ☀️',
@@ -52,37 +49,52 @@ export function HomePage() {
     night: 'Night 🌙',
   }
 
+  const taglineColors = {
+    dawn: 'text-pink-600',
+    midday: 'text-forest-500',
+    dusk: 'text-amber-400',
+    night: 'text-slate-800',
+  }
+
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen flex flex-col relative overflow-hidden">
       {/* Time indicator */}
       <div className="absolute top-6 right-6 z-10 font-sans text-xs text-neutral-600 bg-white/80 px-4 py-2 rounded-full border border-neutral-600/20">
         Time: {timeLabels[timeOfDay]}
       </div>
 
-      {/* Time-adaptive background */}
+      {/* Time-adaptive background with crossfade */}
       <div className="absolute inset-0 z-0">
-        <Image
-          src={background.imageUrl}
-          alt=""
-          fill
-          priority
-          className="object-cover"
-          sizes="100vw"
-          unoptimized
-        />
+        {Object.entries(TIME_BACKGROUNDS).map(([time, bg]) => (
+          <img
+            key={time}
+            src={bg.imageUrl}
+            alt=""
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+              timeOfDay === time ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        ))}
       </div>
 
-      {/* Centered content */}
-      <div className="relative z-[2] text-center px-6 py-12 max-w-[600px]">
-        <h1 className="font-serif text-[clamp(36px,8vw,48px)] font-bold text-neutral-800 mb-4 tracking-[0.02em]">
-          Wildlife Photography
-        </h1>
-        <p className="font-sans text-lg text-neutral-600 mb-12 font-light tracking-[0.01em]">
-          Capturing the untamed beauty of nature
-        </p>
+      {/* Glass effect container at top - title and tagline */}
+      <div className="relative z-[2] pt-12 px-6 flex justify-center">
+        <div className="backdrop-blur-md bg-white/10 rounded-2xl px-6 py-6 border border-white/20 shadow-2xl max-w-[600px] w-full text-center">
+          <h1 className="font-serif text-[clamp(36px,8vw,48px)] font-bold text-white mb-2 tracking-[0.02em]">
+            Jayathu Amarasinghe
+          </h1>
+          <p className={`font-sans text-lg font-semibold tracking-[0.02em] drop-shadow-lg transition-colors duration-500 ${taglineColors[timeOfDay]}`}>
+            Capturing the untamed beauty of nature
+          </p>
+        </div>
+      </div>
 
+      {/* Centered content - nav and social */}
+      <div className="relative z-[2] flex-1 flex items-end justify-center text-center px-6 pb-24">
+        <div className="max-w-[600px] w-full">
+        {/* Glass effect for nav bar */}
         <nav
-          className={`flex flex-row gap-8 mb-12 justify-center flex-wrap transition-opacity duration-600 ${
+          className={`backdrop-blur-md bg-white/10 rounded-2xl px-6 py-4 border border-white/20 shadow-2xl mb-6 transition-opacity duration-600 ${
             showNavigation && isFirstVisit
               ? 'animate-fade-in'
               : showNavigation
@@ -90,24 +102,26 @@ export function HomePage() {
                 : 'opacity-0'
           }`}
         >
-          <Link
-            href="/gallery/color/"
-            className="relative inline-block font-sans text-lg font-normal no-underline transition-all duration-300 ease-nature text-forest-600 nav-link-underline after:bg-forest-500 hover:text-forest-500"
-          >
-            Color Gallery
-          </Link>
-          <Link
-            href="/gallery/bw/"
-            className="relative inline-block font-sans text-lg font-normal no-underline transition-all duration-300 ease-nature text-savanna-600 nav-link-underline after:bg-savanna-500 hover:text-savanna-500"
-          >
-            Black &amp; White Gallery
-          </Link>
-          <Link
-            href="/about/"
-            className="relative inline-block font-sans text-lg font-normal no-underline transition-all duration-300 ease-nature text-neutral-600 nav-link-underline after:bg-neutral-600 hover:text-neutral-800"
-          >
-            About
-          </Link>
+          <div className="flex flex-row gap-8 justify-center flex-wrap">
+            <Link
+              href="/gallery/color/"
+              className="relative inline-block font-sans text-lg font-normal no-underline transition-all duration-300 ease-nature text-white/90 nav-link-underline after:bg-linear-to-r after:from-red-500 after:via-green-500 after:to-blue-500 hover:bg-linear-to-r hover:from-red-500 hover:via-green-500 hover:to-blue-500 hover:bg-clip-text hover:text-transparent"
+            >
+              Color Gallery
+            </Link>
+            <Link
+              href="/gallery/bw/"
+              className="relative inline-block font-sans text-lg font-normal no-underline transition-all duration-300 ease-nature text-white/90 nav-link-underline after:bg-black hover:text-black"
+            >
+              Black &amp; White Gallery
+            </Link>
+            <Link
+              href="/about/"
+              className="relative inline-block font-sans text-lg font-normal no-underline transition-all duration-300 ease-nature text-white/90 nav-link-underline after:bg-forest-500 hover:text-forest-500"
+            >
+              About
+            </Link>
+          </div>
         </nav>
 
         <div
@@ -123,7 +137,7 @@ export function HomePage() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center text-neutral-600 no-underline rounded-full bg-white/50 border border-neutral-600/20 transition-all duration-[400ms] ease-nature text-xl hover:text-forest-600 hover:bg-forest-500/10 hover:border-forest-500 hover:-translate-y-1 hover-firefly"
+            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-[400ms] ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
             title="Instagram"
           >
             <svg
@@ -145,7 +159,7 @@ export function HomePage() {
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center text-neutral-600 no-underline rounded-full bg-white/50 border border-neutral-600/20 transition-all duration-[400ms] ease-nature text-xl hover:text-forest-600 hover:bg-forest-500/10 hover:border-forest-500 hover:-translate-y-1 hover-firefly"
+            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-[400ms] ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
             title="Facebook"
           >
             <svg
@@ -163,7 +177,7 @@ export function HomePage() {
           </a>
           <a
             href="mailto:contact@example.com"
-            className="w-12 h-12 flex items-center justify-center text-neutral-600 no-underline rounded-full bg-white/50 border border-neutral-600/20 transition-all duration-[400ms] ease-nature text-xl hover:text-forest-600 hover:bg-forest-500/10 hover:border-forest-500 hover:-translate-y-1 hover-firefly"
+            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-[400ms] ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
             title="Email"
           >
             <svg
@@ -180,6 +194,7 @@ export function HomePage() {
               <polyline points="22,6 12,13 2,6" />
             </svg>
           </a>
+        </div>
         </div>
       </div>
 

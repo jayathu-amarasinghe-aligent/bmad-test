@@ -8,6 +8,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.public.blob.vercel-storage.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'drive.usercontent.google.com',
+      },
     ],
   },
   trailingSlash: true, // Optional: adds trailing slashes to URLs
