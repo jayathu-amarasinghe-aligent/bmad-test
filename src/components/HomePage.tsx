@@ -50,9 +50,9 @@ export function HomePage() {
   }
 
   const taglineColors = {
-    dawn: 'text-pink-600',
-    midday: 'text-forest-500',
-    dusk: 'text-amber-400',
+    dawn: 'text-slate-800',
+    midday: 'text-slate-800',
+    dusk: 'text-slate-800',
     night: 'text-slate-800',
   }
 
