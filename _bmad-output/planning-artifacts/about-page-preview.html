@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Jayathu Amarasinghe | Wildlife Photography</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Matte Nature Palette */
+            --forest-500: #5a8a6d;
+            --forest-600: #4a6f5a;
+            --forest-700: #3a5847;
+            --forest-100: #e3ede7;
+            --savanna-500: #8f7556;
+            --savanna-600: #735d45;
+            --neutral-50: #faf9f7;
+            --neutral-200: #e8e5e0;
+            --neutral-500: #87817a;
+            --neutral-600: #6b645d;
+            --neutral-800: #3a352f;
+
+            /* Typography */
+            --font-serif: 'Cormorant Garamond', Georgia, serif;
+            --font-sans: 'Inter', system-ui, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: #ffffff;
+            background-image: url('nature-birds-pattern.png');
+            background-size: 1000px auto;
+            background-position: top left;
+            background-repeat: repeat;
+            background-attachment: scroll;
+            color: var(--neutral-800);
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Subtle overlay to slightly lighten the pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.4);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Ensure content is above the pattern */
+        .header,
+        .hero-section,
+        .photo-strip,
+        .content-section,
+        .connect-section {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header (same as gallery) */
+        .header {
+            background: rgba(250, 249, 247, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--neutral-200);
+            padding: 16px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-family: var(--font-serif);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--neutral-600);
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .nav-link.active {
+            color: var(--forest-600);
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--forest-500);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--forest-500);
+        }
+
+        /* Hero Section with Circular Photo */
+        .hero-section {
+            background: white;
+            background-image: url('hero-elephant-bg.png');
+            background-size: contain;
+            background-position: bottom right;
+            background-repeat: no-repeat;
+            padding: 80px 24px;
+            text-align: center;
+            position: relative;
+            min-height: 500px;
+        }
+
+        .profile-photo {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: 4px solid var(--forest-500);
+            object-fit: cover;
+            margin: 0 auto 32px;
+            display: block;
+            box-shadow: 0 8px 24px rgba(90, 138, 109, 0.2);
+        }
+
+        .hero-title {
+            font-family: var(--font-serif);
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--neutral-800);
+            margin-bottom: 12px;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-sans);
+            font-size: 20px;
+            color: var(--neutral-600);
+            font-weight: 400;
+        }
+
+        /* Photo Strips */
+        .photo-strip {
+            width: 100%;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-strip::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+        }
+
+        /* Content Sections */
+        .content-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 96px 24px;
+            background: white;
+        }
+
+        .section-heading {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--forest-600);
+            margin-bottom: 24px;
+        }
+
+        .section-text {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--neutral-600);
+            margin-bottom: 20px;
+        }
+
+        .section-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Equipment List */
+        .equipment-list {
+            margin-top: 32px;
+        }
+
+        .equipment-category {
+            margin-bottom: 24px;
+        }
+
+        .equipment-category h3 {
+            font-family: var(--font-sans);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 12px;
+        }
+
+        .equipment-category ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .equipment-category li {
+            font-family: var(--font-sans);
+            font-size: 16px;
+            color: var(--neutral-600);
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .equipment-category li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--forest-500);
+            font-size: 20px;
+        }
+
+        /* Connect Section */
+        .connect-section {
+            background: var(--forest-100);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .connect-heading {
+            font-family: var(--font-serif);
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--forest-700);
+            margin-bottom: 40px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: white;
+            border: 2px solid var(--forest-500);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 24px;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px);
+            background: var(--forest-500);
+            color: white;
+            box-shadow: 0 12px 24px rgba(90, 138, 109, 0.3);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 60px 16px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 18px;
+            }
+
+            .profile-photo {
+                width: 180px;
+                height: 180px;
+            }
+
+            .photo-strip {
+                height: 250px;
+            }
+
+            .content-section {
+                padding: 64px 16px;
+            }
+
+            .section-heading {
+                font-size: 28px;
+            }
+
+            .section-text {
+                font-size: 16px;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-link {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="homepage-preview.html" class="site-title">Wildlife Photography</a>
+            <nav class="nav-links">
+                <a href="gallery-preview.html" class="nav-link">Color Gallery</a>
+                <a href="#" class="nav-link">Black & White Gallery</a>
+                <a href="#" class="nav-link active">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Circular Photo -->
+    <section class="hero-section">
+        <img
+            src="https://placehold.co/240x240/5a8a6d/ffffff?text=Profile"
+            alt="Jayathu Amarasinghe"
+            class="profile-photo"
+        >
+        <h1 class="hero-title">Jayathu Amarasinghe</h1>
+        <p class="hero-subtitle">Wildlife Photographer & Conservationist</p>
+    </section>
+
+    <!-- Photo Strip 1 -->
+    <div
+        class="photo-strip"
+        style="background-image: url('https://placehold.co/1920x400/5a8a6d/ffffff?text=Photo+Strip+1+-+Wildlife+in+Action');"
+    ></div>
+
+    <!-- Bio & Story Section -->
+    <section class="content-section">
+        <h2 class="section-heading">My Story</h2>
+        <p class="section-text">
+            For over a decade, I've been fortunate enough to witness and capture some of nature's most extraordinary moments.
+            From the vast savannas of the Serengeti to the dense tropical forests of Costa Rica, my journey as a wildlife
+            photographer has been driven by a deep passion for conservation and a commitment to sharing the untamed beauty
+            of our natural world.
+        </p>
+        <p class="section-text">
+            My approach to wildlife photography is rooted in patience, respect, and ethical practices. I believe that great
+            wildlife photography comes not from disturbing or manipulating nature, but from understanding animal behavior,
+            reading the environment, and being present in the moment. Every photograph tells a story—not just of the animal
+            itself, but of the ecosystem it inhabits and the urgent need to protect these wild spaces.
+        </p>
+        <p class="section-text">
+            Through my work, I aim to inspire others to appreciate and protect the incredible biodiversity of our planet.
+            Whether photographing elephants in Amboseli, tigers in Ranthambore, or scarlet macaws in the Amazon, my goal
+            remains the same: to create images that connect people emotionally with wildlife and motivate action toward
+            conservation.
+        </p>
+    </section>
+
+    <!-- Photo Strip 2 -->
+    <div
+        class="photo-strip"
+        style="background-image: url('https://placehold.co/1920x400/5a8a6d/ffffff?text=Photo+Strip+2+-+Behind+the+Lens');"
+    ></div>
+
+    <!-- Equipment & Approach Section -->
+    <section class="content-section">
+        <h2 class="section-heading">Equipment & Approach</h2>
+        <p class="section-text">
+            Great wildlife photography requires more than just good gear—it demands knowledge, patience, and an ethical
+            approach to working with wildlife. That said, having reliable equipment is essential for capturing fleeting
+            moments in challenging conditions.
+        </p>
+
+        <div class="equipment-list">
+            <div class="equipment-category">
+                <h3>Primary Camera Bodies</h3>
+                <ul>
+                    <li>Canon EOS R5 - for versatility and high-resolution captures</li>
+                    <li>Nikon Z9 - for fast action and low-light performance</li>
+                    <li>Sony A1 - for incredible autofocus and continuous shooting</li>
+                </ul>
+            </div>
+
+            <div class="equipment-category">
+                <h3>Lenses</h3>
+                <ul>
+                    <li>Canon RF 100-500mm f/4.5-7.1L IS USM - telephoto zoom for wildlife</li>
+                    <li>Nikon Z 400mm f/2.8 TC VR S - prime telephoto for fast action</li>
+                    <li>Sony FE 200-600mm f/5.6-6.3 G OSS - versatile reach and sharpness</li>
+                    <li>Canon RF 100mm f/2.8L Macro IS USM - for intimate close-ups</li>
+                </ul>
+            </div>
+
+            <div class="equipment-category">
+                <h3>Field Approach</h3>
+                <ul>
+                    <li>Patience and silent observation to understand animal behavior</li>
+                    <li>Ethical wildlife practices—never baiting, disturbing, or manipulating subjects</li>
+                    <li>Understanding ecosystems and habitats to anticipate wildlife movements</li>
+                    <li>Working with local guides and conservationists for responsible access</li>
+                    <li>Minimal environmental impact—leave no trace philosophy</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Strip 3 -->
+    <div
+        class="photo-strip"
+        style="background-image: url('https://placehold.co/1920x400/5a8a6d/ffffff?text=Photo+Strip+3+-+Conservation+in+Action');"
+    ></div>
+
+    <!-- Conservation & Mission Section -->
+    <section class="content-section">
+        <h2 class="section-heading">Conservation & Mission</h2>
+        <p class="section-text">
+            <strong>My mission is simple:</strong> to use photography as a powerful tool for wildlife conservation and
+            environmental education. Every image I capture is not just about aesthetics—it's about raising awareness,
+            inspiring protection, and supporting the preservation of endangered species and threatened ecosystems.
+        </p>
+        <p class="section-text">
+            I am committed to ethical wildlife photography practices that prioritize animal welfare and habitat preservation
+            over the perfect shot. This means respecting wildlife boundaries, never interfering with natural behaviors, and
+            supporting conservation organizations working on the ground to protect these species and their habitats.
+        </p>
+        <p class="section-text">
+            Through partnerships with conservation groups, educational programs, and advocacy efforts, I strive to contribute
+            meaningfully to the global movement to protect our planet's incredible biodiversity. I believe that by sharing
+            the beauty and vulnerability of wildlife, we can inspire the next generation of conservationists and create a
+            future where humans and nature coexist in harmony.
+        </p>
+    </section>
+
+    <!-- Connect Section -->
+    <section class="connect-section">
+        <h2 class="connect-heading">Let's Connect</h2>
+        <p class="section-text" style="max-width: 600px; margin: 0 auto 40px; color: var(--neutral-600);">
+            Follow my journey, get in touch for collaborations, or inquire about prints and safari photography tours.
+        </p>
+        <div class="social-icons">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Instagram">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+            </a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Facebook">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+            </a>
+            <a href="mailto:contact@example.com" class="social-icon" title="Email">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+            </a>
+        </div>
+    </section>
+</body>
+</html>

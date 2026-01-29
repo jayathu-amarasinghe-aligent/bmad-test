@@ -5,8 +5,8 @@ inputDocuments:
   - '_bmad-output/planning-artifacts/architecture.md'
   - '_bmad-output/planning-artifacts/BMAD-Architecture-Complete.md'
   - '_bmad-output/planning-artifacts/ux-design-specification.md'
-totalEpics: 8
-totalStories: 49
+totalEpics: 9
+totalStories: 57
 ---
 
 # BMAD-site - Epic Breakdown
@@ -1621,3 +1621,488 @@ So that regressions are caught before merging.
 **And** Tests run in parallel across browsers for speed
 **And** Workflow completes within 10 minutes
 **And** Flaky tests retry automatically (max 2 retries)
+
+---
+
+## Epic 9: Photographer About Page & Professional Identity
+
+Visitors can learn about the photographer's background, expertise, and passion for wildlife conservation through an elegant About page that builds credibility and trust
+
+### Story 9.1: Create About Page with Photographer Bio and Story
+
+As a visitor,
+I want to learn about the photographer's background and passion for wildlife,
+So that I can connect with the person behind the camera and understand their expertise.
+
+**Acceptance Criteria:**
+
+**Given** I navigate to `/about` from the homepage or gallery navigation
+**When** The page loads
+**Then** I see an About page with:
+- Page title: "About [Photographer Name]"
+- Professional bio section (150-200 words) describing:
+  - Background in wildlife photography
+  - Geographic regions and ecosystems of expertise (Serengeti, tropical forests, wetlands)
+  - Photography philosophy and approach
+  - Passion for conservation and wildlife education
+- Professional portrait image (photographer in the field or with equipment)
+- Consistent with homepage design system:
+  - Matte nature color palette (forest green accents)
+  - Cormorant Garamond serif headings
+  - Inter sans body text
+  - Generous whitespace (48-96px between sections)
+  - Warm off-white background (neutral-50: #faf9f7)
+**And** The layout is responsive across all breakpoints (320px-2560px)
+**And** Text maintains WCAG AA contrast ratios (4.5:1 minimum)
+**And** Navigation back to homepage is visible
+
+---
+
+### Story 9.2: Add Equipment and Technical Approach Section
+
+As a photography enthusiast,
+I want to see what equipment and techniques the photographer uses,
+So that I can learn from their technical approach and understand their expertise level.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing the About page
+**When** I scroll to the Equipment section
+**Then** I see a well-organized section titled "Equipment & Approach" with:
+- **Primary Camera Bodies:** List of main camera systems used (e.g., Canon EOS R5, Nikon Z9)
+- **Lenses:** Key lenses for wildlife photography (e.g., telephoto zooms, primes)
+- **Field Approach:** Brief description of fieldwork methodology:
+  - Patience and ethical wildlife observation practices
+  - Understanding of animal behavior and ecosystems
+  - Commitment to minimal disturbance of natural habitats
+- Clean, readable typography using Inter sans font (18px)
+- Subtle forest green color accents for section headings
+- Equipment presented as simple list, not overly technical
+**And** Section uses icons or subtle visual elements (not overwhelming)
+**And** Content reinforces expertise and professional credibility
+**And** Mobile layout stacks equipment categories vertically for readability
+
+---
+
+### Story 9.3: Add Conservation and Mission Statement
+
+As an environmentally-conscious visitor,
+I want to understand the photographer's commitment to conservation,
+So that I can feel good about supporting their work and potentially following their mission.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing the About page
+**When** I scroll to the Conservation section
+**Then** I see a section titled "Conservation & Mission" with:
+- Brief mission statement about wildlife conservation and education
+- Commitment to ethical wildlife photography practices
+- Statement about supporting conservation organizations or initiatives (if applicable)
+- Vision for using photography to raise awareness and inspire protection of natural habitats
+- Text formatted with Cormorant Garamond headings and Inter body text
+- Forest green accent color for section heading
+- 2-3 paragraphs maximum (keep concise and impactful)
+**And** Tone is passionate but not preachy
+**And** Content builds emotional connection and shared values with visitors
+**And** Optional: Links to partner conservation organizations (if applicable)
+
+---
+
+### Story 9.4: Implement Glassmorphism Design Elements from Homepage
+
+As a visitor,
+I want the About page to visually align with the homepage aesthetic,
+So that the experience feels cohesive and professionally designed.
+
+**Acceptance Criteria:**
+
+**Given** The homepage uses glassmorphism effects and time-adaptive backgrounds
+**When** I view the About page
+**Then** The page incorporates similar design elements:
+- Option A: Subtle background image (wildlife themed, low opacity 20-30%)
+- Option B: Clean minimal background with glassmorphism card containers for content sections
+- Backdrop blur effects on content containers (backdrop-blur-md)
+- Semi-transparent white backgrounds (bg-white/10 or bg-white/80)
+- Subtle borders (border-white/20)
+- Shadow effects for depth (shadow-2xl)
+- Smooth fade-in animations for content sections (fade-in 600ms)
+**And** Design doesn't overpower the text content
+**And** Maintains readability and accessibility (WCAG AA compliance)
+**And** Responsive across all devices
+**And** Consistent transition animations (cubic-bezier(0.4, 0, 0.2, 1))
+
+---
+
+### Story 9.5: Add Social Media and Contact Section
+
+As a potential collaborator or client,
+I want to easily contact the photographer or follow on social media,
+So that I can connect for inquiries, collaborations, or stay updated.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing the About page
+**When** I scroll to the bottom of the page
+**Then** I see a "Connect" section with:
+- Social media icons (Instagram, Facebook) with same firefly animations from homepage
+- Email contact link with subtle icon
+- Optional: Link to professional networks (LinkedIn) if applicable
+- Icons are 48x48px minimum tap targets
+- Hover states with gentle floating animation (translateY -4px to -8px, 3s ease-in-out)
+- Consistent with homepage social icon styling
+- Descriptive aria-labels: "Follow on Instagram", "Follow on Facebook", "Send email"
+**And** Links open in new tabs (target="_blank" with rel="noopener noreferrer")
+**And** Email link uses mailto: protocol
+**And** Animation respects prefers-reduced-motion setting
+**And** Icons maintain forest green accent color theme
+
+---
+
+### Story 9.6: Add About Page to Site Navigation
+
+As a visitor,
+I want to easily navigate to the About page from anywhere on the site,
+So that I can learn about the photographer when I'm interested.
+
+**Acceptance Criteria:**
+
+**Given** I am on any page of the site (homepage, galleries)
+**When** I view the navigation
+**Then** I see an "About" link in the main navigation:
+- Homepage: "About" link added to navigation bar alongside "Color Gallery" and "Black & White Gallery"
+- Gallery pages: "About" link visible in navigation header
+- Link uses consistent styling:
+  - Forest-500 color accent
+  - Hover underline animation
+  - Keyboard accessible (focus ring visible)
+  - Active state indication when on About page
+**And** Clicking "About" navigates to `/about` route
+**And** About page has "Back to Home" or "Back to Gallery" navigation
+**And** Breadcrumb pattern visible: Home > About
+**And** Navigation is responsive across all breakpoints
+**And** Touch target is minimum 44x44px on mobile
+
+---
+
+### Story 9.7: Optimize About Page for SEO and Social Sharing
+
+As a content owner,
+I want the About page properly optimized for search engines and social sharing,
+So that people can discover and share information about the photographer.
+
+**Acceptance Criteria:**
+
+**Given** The About page exists at `/about`
+**When** Search engines crawl the page
+**Then** SEO metadata is properly configured:
+- Page title: "About [Photographer Name] | Wildlife Photographer"
+- Meta description: 150-160 character description of photographer and expertise
+- Open Graph tags:
+  - og:title: About page title
+  - og:description: About page description
+  - og:image: Professional portrait or representative image (1200x630px)
+  - og:url: Canonical URL
+  - og:type: "profile"
+- Twitter Card tags:
+  - twitter:card: "summary"
+  - twitter:title: About page title
+  - twitter:description: About page description
+  - twitter:image: Portrait image
+- JSON-LD Person schema:
+  - @type: "Person"
+  - name: Photographer name
+  - jobTitle: "Wildlife Photographer"
+  - url: Site URL
+  - sameAs: Social media profile URLs
+  - knowsAbout: ["Wildlife Photography", "Conservation", specific ecosystems]
+**And** About page is included in XML sitemap
+**And** Semantic HTML5 markup used (header, main, section, article)
+**And** All images have descriptive alt text
+
+---
+
+### Story 9.8: Add Professional Achievements and Recognition (Optional)
+
+As a visitor evaluating the photographer's credentials,
+I want to see awards, publications, or notable achievements,
+So that I can understand their professional standing and expertise.
+
+**Acceptance Criteria:**
+
+**Given** The photographer has notable achievements (awards, publications, exhibitions)
+**When** I view the About page
+**Then** I see an optional "Recognition" section with:
+- Photography awards or competitions (if applicable)
+- Published work in magazines or websites (if applicable)
+- Exhibition history (if applicable)
+- Notable clients or collaborations (if applicable)
+- Presented as simple, humble list (not boastful)
+- Uses Inter sans font, 16-18px
+- Subtle forest green accents
+- Maximum 5-7 items (only significant achievements)
+**And** Section is skipped entirely if no significant achievements yet
+**And** Tone remains humble and focused on the work, not ego
+**And** Layout is clean and doesn't overwhelm the bio narrative
+
+---
+
+**Epic 9 Summary:**
+
+This epic adds a professional About page that builds credibility, trust, and emotional connection with visitors. It supports multiple user journeys:
+- Personal network visitors (Sarah Chen) validating professionalism
+- Photography enthusiasts (Marcus Rodriguez) learning about approach and expertise
+- Safari seekers (Lisa & Tom Anderson) evaluating field experience and credibility
+- Print buyers (James Patterson) building confidence in the photographer's authenticity
+
+The About page reinforces the distinctive design system while providing essential context that converts casual visitors into engaged followers and future clients.
+
+**FRs enabled:** Credibility building, social conversion, conservation values communication
+**NFRs addressed:** NFR21-29 (accessibility), NFR36 (navigation clarity), SEO optimization
+**Design alignment:** Matte nature palette, glassmorphism, Cormorant Garamond + Inter typography, calm aesthetic
+
+---
+
+### Story 9.9: Implement About Page with Nature Pattern Background
+
+As a developer,
+I want to implement the About page based on the approved design mockup,
+So that visitors can learn about the photographer's story and mission.
+
+**Acceptance Criteria:**
+
+**Given** The about-page-preview.html design has been approved
+**When** I implement the About page at `/about`
+**Then** The page includes:
+- Nature-inspired background pattern (birds, flowers, butterflies)
+  - Background image: nature-birds-pattern.png
+  - Background size: 1000px auto (maintaining aspect ratio)
+  - Background repeat: repeat (tiles both directions)
+  - Semi-transparent white overlay (40% opacity) to lighten pattern
+- Sticky header navigation matching gallery pages
+  - Site title on left
+  - Navigation links: "Color Gallery", "Black & White Gallery", "About" (active)
+  - Forest green hover animations
+  - Backdrop blur effect
+**And** Hero section with elephant illustration background:
+  - White background with hero-elephant-bg.png positioned bottom-right
+  - Circular profile photo (240px diameter, forest green border, box shadow)
+  - Photographer name in Cormorant Garamond serif (48px)
+  - Subtitle: "Wildlife Photographer & Conservationist" in Inter sans (20px)
+  - Minimum height: 500px
+**And** Three full-width photo strips (400px height each) between content sections
+**And** Content sections with:
+  - Max-width: 900px, centered
+  - Padding: 96px 24px
+  - White background
+  - Forest green section headings (Cormorant Garamond, 36px)
+  - Body text in Inter sans (18px, 1.8 line-height)
+**And** All styling uses CSS variables from design system:
+  - --forest-500, --forest-600, --forest-700
+  - --neutral-50, --neutral-600, --neutral-800
+  - --font-serif, --font-sans
+**And** Page maintains z-index layering (background pattern < overlay < content)
+
+---
+
+### Story 9.10: Implement Bio and Story Content Section
+
+As a visitor,
+I want to read the photographer's background and story,
+So that I can connect with their passion and expertise.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing the About page after the hero section
+**When** I scroll to the first content section
+**Then** I see the "My Story" section with:
+- Section heading: "My Story" in forest green (#5a8a6d)
+- Three paragraphs of bio content covering:
+  - Decade of wildlife photography experience
+  - Geographic regions (Serengeti, Costa Rica, etc.)
+  - Photography philosophy (patience, respect, ethical practices)
+  - Conservation commitment
+- Text formatting:
+  - 18px Inter sans font
+  - 1.8 line-height
+  - Neutral-600 color (#6b645d)
+  - 20px margin between paragraphs
+**And** Section has white background with proper z-index above pattern
+**And** Content is centered with max-width 900px
+**And** Generous padding (96px top/bottom, 24px left/right)
+
+---
+
+### Story 9.11: Implement Equipment and Approach Section
+
+As a photography enthusiast,
+I want to see the photographer's equipment and field approach,
+So that I can learn from their technical expertise.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing the About page
+**When** I scroll to the Equipment & Approach section
+**Then** I see:
+- Section heading: "Equipment & Approach" in forest green
+- Introductory paragraph about gear and ethical approach
+- Three subsections with custom bullet styling:
+  - **Primary Camera Bodies** (Canon EOS R5, Nikon Z9, Sony A1)
+  - **Lenses** (telephoto zooms, primes with specific models)
+  - **Field Approach** (patience, ethics, ecosystem understanding)
+- List styling:
+  - No default bullets (list-style: none)
+  - Custom forest green bullet points (•) positioned absolutely
+  - 16px Inter sans font
+  - 8px vertical padding per item
+  - 24px left padding for text
+**And** Subsection headings are 18px, semi-bold, neutral-800 color
+**And** Content follows same max-width and padding as other sections
+
+---
+
+### Story 9.12: Implement Conservation Mission Section
+
+As an environmentally-conscious visitor,
+I want to understand the photographer's conservation commitment,
+So that I can align with their values and mission.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing the About page
+**When** I scroll to the Conservation & Mission section
+**Then** I see:
+- Section heading: "Conservation & Mission" in forest green
+- Three paragraphs covering:
+  - Mission statement (using photography for conservation)
+  - Ethical practices commitment (never disturbing wildlife)
+  - Partnerships and advocacy efforts
+- First paragraph includes bold emphasis on "My mission is simple:"
+- Text maintains same styling as other content sections (18px, 1.8 line-height)
+- Tone is passionate but professional
+**And** Section positioned after photo strip 3
+**And** White background with proper spacing
+
+---
+
+### Story 9.13: Implement Connect Section with Social Icons
+
+As a visitor,
+I want to connect with the photographer on social media or email,
+So that I can follow their work and stay in touch.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing the About page
+**When** I scroll to the bottom Connect section
+**Then** I see:
+- Light green background (forest-100: #e3ede7)
+- Section heading: "Let's Connect" (Cormorant Garamond, 36px, forest-700)
+- Subtitle paragraph explaining connection options
+- Three social media icons in a row:
+  - Instagram (with icon SVG)
+  - Facebook (with icon SVG)
+  - Email (with icon SVG)
+- Icon styling:
+  - 60px x 60px circular buttons
+  - White background with forest-500 border (2px)
+  - Centered icons (24px SVG)
+  - Gap: 24px between icons
+- Hover animations:
+  - Transform: translateY(-8px)
+  - Background changes to forest-500
+  - Icon color changes to white
+  - Box shadow: 0 12px 24px rgba(90, 138, 109, 0.3)
+  - Transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1)
+**And** Links open in new tabs (target="_blank", rel="noopener noreferrer")
+**And** Email uses mailto: protocol
+**And** All icons have descriptive aria-labels for accessibility
+**And** Icons maintain 48x48px minimum tap target size
+
+---
+
+### Story 9.14: Implement Mobile-Responsive Design for About Page
+
+As a mobile user,
+I want the About page to work perfectly on my phone or tablet,
+So that I can read about the photographer on any device.
+
+**Acceptance Criteria:**
+
+**Given** I am viewing the About page on a mobile device (≤768px width)
+**When** The page loads
+**Then** The responsive styles adjust:
+- **Hero section:**
+  - Padding reduced to 60px 16px
+  - Profile photo: 180px diameter (down from 240px)
+  - Title: 36px (down from 48px)
+  - Subtitle: 18px (down from 20px)
+  - Elephant background scales proportionally
+- **Photo strips:**
+  - Height: 250px (down from 400px)
+- **Content sections:**
+  - Padding: 64px 16px (reduced from 96px 24px)
+  - Section headings: 28px (down from 36px)
+  - Body text: 16px (down from 18px)
+- **Navigation:**
+  - Gap reduced to 16px between links
+  - Nav links: 14px (down from 16px)
+  - Navigation remains functional and readable
+- **Background pattern:**
+  - Continues to tile seamlessly at 1000px size
+  - White overlay maintains visibility of content
+- **Connect section:**
+  - Social icons maintain 60px size for tap targets
+  - Stack or maintain horizontal layout with proper spacing
+**And** All text remains readable (WCAG AA contrast)
+**And** Touch targets are minimum 44x44px
+**And** Page scrolls smoothly without horizontal overflow
+**And** Images load efficiently on mobile connections
+**And** Layout shifts are minimal (CLS < 0.1)
+
+---
+
+### Story 9.15: Add About Page to Site Navigation
+
+As a visitor,
+I want to access the About page from anywhere on the site,
+So that I can easily learn about the photographer.
+
+**Acceptance Criteria:**
+
+**Given** I am on the homepage or gallery pages
+**When** I view the navigation
+**Then** I see an "About" link in the main navigation
+**And** Clicking "About" navigates to `/about` route
+**And** The About link uses consistent styling with other nav links:
+  - Forest-500 color on hover
+  - Underline animation (width transitions from 0 to 100%)
+  - Active state (forest-600 color, font-weight 500) when on About page
+**And** Navigation is keyboard accessible (Tab key navigation works)
+**And** Focus states are visible for accessibility
+**And** About page has "Back to Home" functionality via site title link
+
+**Given** I am on the About page
+**When** I view the navigation
+**Then** The "About" link shows active state (forest-600 color, font-weight 500)
+**And** I can navigate to Color Gallery or Black & White Gallery from the nav
+
+---
+
+**Epic 9 Implementation Summary:**
+
+Stories 9.9-9.15 focus on implementing the About page based on the approved HTML preview design. Key features:
+- Nature-inspired repeating background pattern (birds, flowers, butterflies)
+- Hero section with elephant illustration positioned bottom-right
+- Circular profile photo with forest green styling
+- Three full-width photo strips alternating with content sections
+- Comprehensive bio, equipment, and conservation content
+- Social media connect section with hover animations
+- Fully responsive mobile design (Story 9.14)
+- Integrated navigation across the site
+
+**Technical Notes:**
+- Background pattern: 1000px auto sizing for subtle repetition
+- Two background layers: tiled pattern + semi-transparent white overlay
+- Z-index management: pattern (0) < overlay (0) < content (1) < header (100)
+- Consistent design system variables throughout
+- Mobile breakpoint: 768px for responsive adjustments

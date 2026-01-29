@@ -80,10 +80,10 @@ export function HomePage() {
       {/* Glass effect container at top - title and tagline */}
       <div className="relative z-[2] pt-12 px-6 flex justify-center">
         <div className="backdrop-blur-md bg-white/10 rounded-2xl px-6 py-6 border border-white/20 shadow-2xl max-w-[600px] w-full text-center">
-          <h1 className="font-serif text-[clamp(36px,8vw,48px)] font-bold text-white mb-2 tracking-[0.02em]">
+          <h1 className="font-sans text-[clamp(36px,8vw,48px)] font-bold text-white mb-2 tracking-[0.02em] capitalize">
             Jayathu Amarasinghe
           </h1>
-          <p className={`font-sans text-lg font-semibold tracking-[0.02em] drop-shadow-lg transition-colors duration-500 ${taglineColors[timeOfDay]}`}>
+          <p className={`font-sans text-white text-lg font-semibold tracking-[0.02em] drop-shadow-lg transition-colors duration-500 ${taglineColors[timeOfDay]}`}>
             Capturing the untamed beauty of nature
           </p>
         </div>
