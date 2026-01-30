@@ -1,50 +1,310 @@
 {
   "images": [
     {
-      "id": "kigfisher",
-      "filename": "kigfisher.jpg",
+      "id": "Bee Eater",
+      "filename": "Bee Eater.jpg",
       "category": "color",
-      "url": "/images/color/kigfisher.jpg",
-      "width": 3988,
-      "height": 2243,
-      "alt": "Kigfisher",
+      "url": "/images/color/Bee Eater.jpg",
+      "width": 4237,
+      "height": 2383,
+      "alt": "Bee Eater",
       "metadata": {
-        "camera": null,
-        "iso": null,
-        "aperture": null,
-        "shutter": null,
-        "lens": null,
-        "focalLength": null,
-        "location": null,
-        "dateTaken": null
+        "camera": "SONY ILCE-9M2",
+        "iso": 640,
+        "aperture": "f/2.8",
+        "shutter": "1/2000s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2024-01-03T15:33:27.000Z",
+        "location": null
       },
-      "createdAt": "2026-01-30T03:23:48.174Z"
+      "createdAt": "2026-01-30T13:05:28.807Z"
     },
     {
-      "id": "lorikeet",
-      "filename": "lorikeet.jpg",
+      "id": "Ghala",
+      "filename": "Ghala.jpg",
       "category": "color",
-      "url": "/images/color/lorikeet.jpg",
-      "width": 5328,
-      "height": 2997,
+      "url": "/images/color/Ghala.jpg",
+      "width": 6292,
+      "height": 4195,
+      "alt": "Ghala",
+      "metadata": {
+        "camera": "SONY ILCE-1M2",
+        "iso": 800,
+        "aperture": "f/8",
+        "shutter": "1/400s",
+        "lens": "FE 400mm F2.8 GM OSS + 1.4X Teleconverter",
+        "focalLength": "560mm",
+        "dateTaken": "2025-10-03T23:03:09.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.809Z"
+    },
+    {
+      "id": "Giraf",
+      "filename": "Giraf.jpg",
+      "category": "color",
+      "url": "/images/color/Giraf.jpg",
+      "width": 7297,
+      "height": 4865,
+      "alt": "Giraf",
+      "metadata": {
+        "camera": "SONY ILCE-1M2",
+        "iso": 2500,
+        "aperture": "f/5.6",
+        "shutter": "1/1000s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2025-08-13T11:19:38.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.810Z"
+    },
+    {
+      "id": "Kingfisher",
+      "filename": "Kingfisher.jpg",
+      "category": "color",
+      "url": "/images/color/Kingfisher.jpg",
+      "width": 3988,
+      "height": 2243,
+      "alt": "Kingfisher",
+      "metadata": {
+        "camera": "SONY ILCE-9M2",
+        "iso": 500,
+        "aperture": "f/2.8",
+        "shutter": "1/400s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2023-05-27T23:34:39.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.812Z"
+    },
+    {
+      "id": "Leopard",
+      "filename": "Leopard.jpg",
+      "category": "color",
+      "url": "/images/color/Leopard.jpg",
+      "width": 3673,
+      "height": 5510,
+      "alt": "Leopard",
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "iso": 250,
+        "aperture": "f/1.8",
+        "shutter": "1/4000s",
+        "lens": "FE 135mm F1.8 GM",
+        "focalLength": "135mm",
+        "dateTaken": "2023-02-10T01:53:47.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.813Z"
+    },
+    {
+      "id": "Leopard2",
+      "filename": "Leopard2.jpg",
+      "category": "color",
+      "url": "/images/color/Leopard2.jpg",
+      "width": 6125,
+      "height": 4083,
+      "alt": "Leopard2",
+      "metadata": {
+        "camera": "SONY ILCE-7M4",
+        "iso": 800,
+        "aperture": "f/1.8",
+        "shutter": "1/125s",
+        "lens": "FE 135mm F1.8 GM",
+        "focalLength": "135mm",
+        "dateTaken": "2022-12-12T07:33:16.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.814Z"
+    },
+    {
+      "id": "Leopards3",
+      "filename": "Leopards3.jpg",
+      "category": "color",
+      "url": "/images/color/Leopards3.jpg",
+      "width": 4518,
+      "height": 3012,
+      "alt": "Leopards3",
+      "metadata": {
+        "camera": "SONY ILCE-9M2",
+        "iso": 2500,
+        "aperture": "f/2.8",
+        "shutter": "1/1250s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2025-03-21T07:14:16.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.815Z"
+    },
+    {
+      "id": "Leopards4",
+      "filename": "Leopards4.jpg",
+      "category": "color",
+      "url": "/images/color/Leopards4.jpg",
+      "width": 5067,
+      "height": 3378,
+      "alt": "Leopards4",
+      "metadata": {
+        "camera": "SONY ILCE-9M2",
+        "iso": 200,
+        "aperture": "f/2.8",
+        "shutter": "1/1600s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2023-02-10T01:38:54.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.815Z"
+    },
+    {
+      "id": "Lions",
+      "filename": "Lions.jpg",
+      "category": "color",
+      "url": "/images/color/Lions.jpg",
+      "width": 4023,
+      "height": 2682,
+      "alt": "Lions",
+      "metadata": {
+        "camera": "SONY ILCE-1M2",
+        "iso": 1000,
+        "aperture": "f/2.8",
+        "shutter": "1/500s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2025-08-10T10:46:04.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.817Z"
+    },
+    {
+      "id": "Lions2",
+      "filename": "Lions2.jpg",
+      "category": "color",
+      "url": "/images/color/Lions2.jpg",
+      "width": 4148,
+      "height": 2765,
+      "alt": "Lions2",
+      "metadata": {
+        "camera": "SONY ILCE-1M2",
+        "iso": 1000,
+        "aperture": "f/2.8",
+        "shutter": "1/500s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2025-08-10T10:47:02.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.818Z"
+    },
+    {
+      "id": "Lorikeet",
+      "filename": "Lorikeet.jpg",
+      "category": "color",
+      "url": "/images/color/Lorikeet.jpg",
+      "width": 5582,
+      "height": 4190,
       "alt": "Lorikeet",
       "metadata": {
-        "camera": null,
-        "iso": null,
-        "aperture": null,
-        "shutter": null,
-        "lens": null,
-        "focalLength": null,
-        "location": null,
-        "dateTaken": null
+        "camera": "SONY ILCE-9M2",
+        "iso": 400,
+        "aperture": "f/4",
+        "shutter": "1/640s",
+        "lens": "FE 400mm F2.8 GM OSS + 1.4X Teleconverter",
+        "focalLength": "560mm",
+        "dateTaken": "2024-09-04T03:11:43.000Z",
+        "location": null
       },
-      "createdAt": "2026-01-30T03:23:48.176Z"
+      "createdAt": "2026-01-30T13:05:28.818Z"
+    },
+    {
+      "id": "Pelicon",
+      "filename": "Pelicon.jpg",
+      "category": "color",
+      "url": "/images/color/Pelicon.jpg",
+      "width": 7217,
+      "height": 4811,
+      "alt": "Pelicon",
+      "metadata": {
+        "camera": "SONY ILCE-1M2",
+        "iso": 800,
+        "aperture": "f/7.1",
+        "shutter": "1/1600s",
+        "lens": "FE 400mm F2.8 GM OSS + 1.4X Teleconverter",
+        "focalLength": "560mm",
+        "dateTaken": "2025-12-13T21:46:44.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.819Z"
+    },
+    {
+      "id": "Sunset",
+      "filename": "Sunset.jpg",
+      "category": "color",
+      "url": "/images/color/Sunset.jpg",
+      "width": 8485,
+      "height": 5657,
+      "alt": "Sunset",
+      "metadata": {
+        "camera": "SONY ILCE-1M2",
+        "iso": 800,
+        "aperture": "f/6.3",
+        "shutter": "1/5000s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2025-08-14T00:07:38.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.820Z"
+    },
+    {
+      "id": "Zebra",
+      "filename": "Zebra.jpg",
+      "category": "color",
+      "url": "/images/color/Zebra.jpg",
+      "width": 4621,
+      "height": 6932,
+      "alt": "Zebra",
+      "metadata": {
+        "camera": "SONY ILCE-1M2",
+        "iso": 250,
+        "aperture": "f/2.8",
+        "shutter": "1/4000s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2025-08-11T01:52:21.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.821Z"
+    },
+    {
+      "id": "leopards5",
+      "filename": "leopards5.jpg",
+      "category": "color",
+      "url": "/images/color/leopards5.jpg",
+      "width": 1322,
+      "height": 1983,
+      "alt": "Leopards5",
+      "metadata": {
+        "camera": "SONY ILCE-9M2",
+        "iso": 400,
+        "aperture": "f/2.8",
+        "shutter": "1/640s",
+        "lens": "FE 400mm F2.8 GM OSS",
+        "focalLength": "400mm",
+        "dateTaken": "2023-06-29T07:39:33.000Z",
+        "location": null
+      },
+      "createdAt": "2026-01-30T13:05:28.821Z"
     }
   ],
-  "generatedAt": "2026-01-30T03:23:48.177Z",
-  "totalImages": 2,
+  "generatedAt": "2026-01-30T13:05:28.822Z",
+  "totalImages": 15,
   "categories": {
-    "color": 2,
+    "color": 15,
     "bw": 0
   }
 }
