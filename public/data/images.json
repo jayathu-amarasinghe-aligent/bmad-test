@@ -1,6 +1,26 @@
 {
   "images": [
     {
+      "id": "kigfisher",
+      "filename": "kigfisher.jpg",
+      "category": "color",
+      "url": "/images/color/kigfisher.jpg",
+      "width": 3988,
+      "height": 2243,
+      "alt": "Kigfisher",
+      "metadata": {
+        "camera": null,
+        "iso": null,
+        "aperture": null,
+        "shutter": null,
+        "lens": null,
+        "focalLength": null,
+        "location": null,
+        "dateTaken": null
+      },
+      "createdAt": "2026-01-30T03:23:48.174Z"
+    },
+    {
       "id": "lorikeet",
       "filename": "lorikeet.jpg",
       "category": "color",
@@ -18,13 +38,13 @@
         "location": null,
         "dateTaken": null
       },
-      "createdAt": "2026-01-30T03:18:28.464Z"
+      "createdAt": "2026-01-30T03:23:48.176Z"
     }
   ],
-  "generatedAt": "2026-01-30T03:18:28.465Z",
-  "totalImages": 1,
+  "generatedAt": "2026-01-30T03:23:48.177Z",
+  "totalImages": 2,
   "categories": {
-    "color": 1,
+    "color": 2,
     "bw": 0
   }
 }
