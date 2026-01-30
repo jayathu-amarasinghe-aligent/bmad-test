@@ -70,7 +70,7 @@ export function HomePage() {
             key={time}
             src={bg.imageUrl}
             alt=""
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500] ease-in-out ${
               timeOfDay === time ? 'opacity-100' : 'opacity-0'
             }`}
           />
@@ -78,8 +78,8 @@ export function HomePage() {
       </div>
 
       {/* Glass effect container at top - title and tagline */}
-      <div className="relative z-[2] pt-12 px-6 flex justify-center">
-        <div className="backdrop-blur-md bg-white/10 rounded-2xl px-6 py-6 border border-white/20 shadow-2xl max-w-[600px] w-full text-center">
+      <div className="relative z-2 pt-12 px-6 flex justify-center">
+        <div className="backdrop-blur-md bg-white/10 rounded-2xl px-6 py-6 border border-white/20 shadow-2xl max-w-150 w-full text-center">
           <h1 className="font-sans text-[clamp(36px,8vw,48px)] font-bold text-white mb-2 tracking-[0.02em] capitalize">
             Jayathu Amarasinghe
           </h1>
@@ -90,8 +90,8 @@ export function HomePage() {
       </div>
 
       {/* Centered content - nav and social */}
-      <div className="relative z-[2] flex-1 flex items-end justify-center text-center px-6 pb-24">
-        <div className="max-w-[600px] w-full">
+      <div className="relative z-2 flex-1 flex items-end justify-center text-center px-6 pb-24">
+        <div className="max-w-150 w-full">
         {/* Glass effect for nav bar */}
         <nav
           className={`backdrop-blur-md bg-white/10 rounded-2xl px-6 py-4 border border-white/20 shadow-2xl mb-6 transition-opacity duration-600 ${
@@ -137,7 +137,7 @@ export function HomePage() {
             href="https://instagram.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-[400ms] ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
+            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-400 ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
             title="Instagram"
           >
             <svg
@@ -159,7 +159,7 @@ export function HomePage() {
             href="https://facebook.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-[400ms] ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
+            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-400 ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
             title="Facebook"
           >
             <svg
@@ -177,7 +177,7 @@ export function HomePage() {
           </a>
           <a
             href="mailto:contact@example.com"
-            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-[400ms] ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
+            className="w-12 h-12 flex items-center justify-center text-white/70 no-underline rounded-full bg-white/20 border border-white/30 transition-all duration-400 ease-nature text-xl hover:text-white hover:bg-forest-500 hover:border-forest-500 hover:scale-110"
             title="Email"
           >
             <svg
