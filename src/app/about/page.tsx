@@ -34,7 +34,7 @@ export default function AboutPage() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-scree">
       <Header currentPage="about" />
 
       {/* Background Pattern */}
@@ -42,13 +42,10 @@ export default function AboutPage() {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url(/about/nature-birds-pattern.png)',
-            backgroundSize: '1000px auto',
-            backgroundPosition: 'top left',
-            backgroundRepeat: 'repeat'
+            backgroundColor: 'white',
           }}
         />
-        <div className="absolute inset-0 bg-white/40" />
+        <div/>
       </div>
 
       {/* Hero Section */}
@@ -185,21 +182,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      {/* Photo Strip 3 */}
-      <div
-        className="relative z-10 w-full overflow-hidden"
-        style={{
-          backgroundImage: 'url(/about/3.jpg)',
-          // Size options: 'cover' (fills area, may crop), 'contain' (shows full image), '100% 400px' (width height), etc.
-          backgroundSize: '100%',
-          // Position options: 'center', 'top', 'bottom', 'left', 'right', '50% 30%', etc.
-          backgroundPosition: '50% 70%',
-          // Height options: '200px', '300px', '400px', '500px', etc.
-          height: '400px'
-        }}
-      >
-      </div>
       <Footer />
     </div>
   )
