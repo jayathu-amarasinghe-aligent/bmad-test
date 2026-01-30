@@ -18,6 +18,7 @@
 const fs = require('fs').promises;
 const path = require('path');
 const exifr = require('exifr');
+const https = require('https');
 
 // Configuration
 const IMAGE_DIRS = {
@@ -29,6 +30,77 @@ const OUTPUT_FILE = path.join(process.cwd(), 'public/data/images.json');
 
 // Supported image formats
 const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
+
+// Reverse geocoding cache to avoid repeated API calls
+const geocodingCache = new Map();
+
+/**
+ * Reverse geocode GPS coordinates to location name
+ * Uses OpenStreetMap Nominatim API (free, no API key required)
+ */
+async function reverseGeocode(latitude, longitude) {
+  const cacheKey = `${latitude.toFixed(4)},${longitude.toFixed(4)}`;
+
+  // Check cache first
+  if (geocodingCache.has(cacheKey)) {
+    return geocodingCache.get(cacheKey);
+  }
+
+  try {
+    // Use OpenStreetMap Nominatim API (free, no API key required)
+    // Rate limit: 1 request per second
+    const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10`;
+
+    const response = await new Promise((resolve, reject) => {
+      https.get(url, {
+        headers: {
+          'User-Agent': 'BMAD-Wildlife-Photography-Site/1.0'
+        }
+      }, (res) => {
+        let data = '';
+        res.on('data', chunk => data += chunk);
+        res.on('end', () => resolve({ data, statusCode: res.statusCode }));
+      }).on('error', reject);
+    });
+
+    if (response.statusCode !== 200) {
+      console.warn(`Geocoding failed for ${latitude}, ${longitude}`);
+      return null;
+    }
+
+    const result = JSON.parse(response.data);
+
+    // Format location name from result
+    let location = null;
+    if (result.address) {
+      const parts = [];
+
+      // Include park/nature reserve if available
+      if (result.address.nature_reserve) parts.push(result.address.nature_reserve);
+      if (result.address.park) parts.push(result.address.park);
+      if (result.address.tourism) parts.push(result.address.tourism);
+
+      // Include state/region
+      if (result.address.state) parts.push(result.address.state);
+
+      // Include country
+      if (result.address.country) parts.push(result.address.country);
+
+      location = parts.join(', ');
+    }
+
+    // Cache the result
+    geocodingCache.set(cacheKey, location);
+
+    // Respect rate limit (1 request per second)
+    await new Promise(resolve => setTimeout(resolve, 1100));
+
+    return location;
+  } catch (error) {
+    console.warn(`Error geocoding ${latitude}, ${longitude}:`, error.message);
+    return null;
+  }
+}
 
 /**
  * Get all image files from a directory
@@ -85,12 +157,20 @@ async function extractMetadata(filePath) {
       location: null, // Will be populated from GPS or manual override
     };
 
-    // Extract GPS coordinates if available
+    // Extract GPS coordinates and reverse geocode to location name
     if (exif.latitude && exif.longitude) {
       metadata.gps = {
         latitude: exif.latitude,
         longitude: exif.longitude,
       };
+
+      // Try to get location name from GPS coordinates
+      console.log(`    🌍 Reverse geocoding GPS: ${exif.latitude.toFixed(4)}, ${exif.longitude.toFixed(4)}`);
+      const locationName = await reverseGeocode(exif.latitude, exif.longitude);
+      if (locationName) {
+        metadata.location = locationName;
+        console.log(`    📍 Location: ${locationName}`);
+      }
     }
 
     return metadata;
