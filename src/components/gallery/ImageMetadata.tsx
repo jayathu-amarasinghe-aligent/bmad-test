@@ -12,12 +12,12 @@ interface ImageMetadata {
 }
 
 interface ImageMetadataProps {
-  title: string
+  title?: string  // Optional since we're not using it
   metadata: ImageMetadata
   className?: string
 }
 
-export default function ImageMetadata({ title, metadata, className = '' }: ImageMetadataProps) {
+export default function ImageMetadata({ metadata, className = '' }: ImageMetadataProps) {
   const hasExifData = metadata.camera || metadata.lens || metadata.aperture || metadata.shutter || metadata.iso
   const hasLocationData = metadata.location || metadata.dateTaken
 
