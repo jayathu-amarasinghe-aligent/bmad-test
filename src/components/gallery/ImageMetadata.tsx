@@ -23,7 +23,7 @@ export default function ImageMetadata({ title, metadata, className = '' }: Image
 
   return (
     <div className={`bg-black/70 text-white px-6 py-4 rounded-lg ${className}`}>
-      <h3 className="font-serif text-lg mb-2">{title}</h3>
+      {/* <h3 className="font-serif text-lg mb-2">{title}</h3> */}
       <div className="font-mono text-xs leading-relaxed opacity-90">
         {/* EXIF Data */}
         {hasExifData && (

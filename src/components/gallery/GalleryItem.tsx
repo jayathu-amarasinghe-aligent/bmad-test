@@ -63,9 +63,6 @@ export default function GalleryItem({
       {/* Hover Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-neutral-800/95 via-neutral-800/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
         <div className="text-white">
-          <div className="font-serif text-lg font-semibold mb-2 drop-shadow-md">
-            {alt}
-          </div>
 
           {metadata.location && (
             <div className="font-sans text-xs opacity-90 mb-3 flex items-center gap-1.5">

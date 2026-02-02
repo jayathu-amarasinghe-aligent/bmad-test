@@ -89,10 +89,10 @@ export default function ColorGalleryPage() {
       {/* Gallery */}
       <main className="w-full px-6 lg:px-12 xl:px-16 2xl:px-24 py-12 lg:py-16">
         <div className="text-center mb-8">
-          <h1 className="font-serif text-4xl font-bold text-neutral-800 mb-2">
+          <h1 className="text-4xl font-bold text-neutral-800 mb-2">
             Color Gallery
           </h1>
-          <p className="text-neutral-600">Vibrant moments from the wild</p>
+          <p className="text-black">Vibrant moments from the wild</p>
         </div>
 
         {isLoading ? (
