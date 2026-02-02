@@ -15,10 +15,10 @@
         "shutter": "1/500s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-07-01T07:47:30.000Z",
+        "dateTaken": "2023-07-01T17:17:30.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.161Z"
+      "createdAt": "2026-02-02T06:01:54.189Z"
     },
     {
       "id": "Bee Eater",
@@ -35,10 +35,10 @@
         "shutter": "1/2000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2024-01-03T15:33:27.000Z",
+        "dateTaken": "2024-01-04T02:03:27.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.162Z"
+      "createdAt": "2026-02-02T06:01:54.192Z"
     },
     {
       "id": "Eagle",
@@ -55,10 +55,10 @@
         "shutter": "1/1250s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-11-05T22:40:42.000Z",
+        "dateTaken": "2023-11-06T09:10:42.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.163Z"
+      "createdAt": "2026-02-02T06:01:54.194Z"
     },
     {
       "id": "Ghala",
@@ -75,10 +75,10 @@
         "shutter": "1/400s",
         "lens": "FE 400mm F2.8 GM OSS + 1.4X Teleconverter",
         "focalLength": "560mm",
-        "dateTaken": "2025-10-03T23:03:09.000Z",
+        "dateTaken": "2025-10-04T08:33:09.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.164Z"
+      "createdAt": "2026-02-02T06:01:54.196Z"
     },
     {
       "id": "Giraf",
@@ -95,10 +95,10 @@
         "shutter": "1/1000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-13T11:19:38.000Z",
+        "dateTaken": "2025-08-13T20:49:38.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.165Z"
+      "createdAt": "2026-02-02T06:01:54.198Z"
     },
     {
       "id": "Kingfisher",
@@ -115,10 +115,10 @@
         "shutter": "1/400s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-05-27T23:34:39.000Z",
+        "dateTaken": "2023-05-28T09:04:39.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.166Z"
+      "createdAt": "2026-02-02T06:01:54.200Z"
     },
     {
       "id": "Leopard",
@@ -135,10 +135,10 @@
         "shutter": "1/4000s",
         "lens": "FE 135mm F1.8 GM",
         "focalLength": "135mm",
-        "dateTaken": "2023-02-10T01:53:47.000Z",
+        "dateTaken": "2023-02-10T12:23:47.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.167Z"
+      "createdAt": "2026-02-02T06:01:54.202Z"
     },
     {
       "id": "Leopard2",
@@ -155,10 +155,10 @@
         "shutter": "1/125s",
         "lens": "FE 135mm F1.8 GM",
         "focalLength": "135mm",
-        "dateTaken": "2022-12-12T07:33:16.000Z",
+        "dateTaken": "2022-12-12T18:03:16.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.167Z"
+      "createdAt": "2026-02-02T06:01:54.204Z"
     },
     {
       "id": "Leopards3",
@@ -175,10 +175,10 @@
         "shutter": "1/1250s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-03-21T07:14:16.000Z",
+        "dateTaken": "2025-03-21T17:44:16.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.169Z"
+      "createdAt": "2026-02-02T06:01:54.206Z"
     },
     {
       "id": "Leopards4",
@@ -195,10 +195,10 @@
         "shutter": "1/1600s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-02-10T01:38:54.000Z",
+        "dateTaken": "2023-02-10T12:08:54.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.170Z"
+      "createdAt": "2026-02-02T06:01:54.208Z"
     },
     {
       "id": "Lion2",
@@ -215,10 +215,10 @@
         "shutter": "1/320s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-14T11:07:14.000Z",
+        "dateTaken": "2025-08-14T20:37:14.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.170Z"
+      "createdAt": "2026-02-02T06:01:54.210Z"
     },
     {
       "id": "Lions",
@@ -235,30 +235,10 @@
         "shutter": "1/500s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-10T10:46:04.000Z",
+        "dateTaken": "2025-08-10T20:16:04.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.171Z"
-    },
-    {
-      "id": "Lorikeet",
-      "filename": "Lorikeet.jpg",
-      "category": "color",
-      "url": "/images/color/Lorikeet.jpg",
-      "width": 5582,
-      "height": 4190,
-      "alt": "Lorikeet",
-      "metadata": {
-        "camera": "SONY ILCE-9M2",
-        "iso": 400,
-        "aperture": "f/4",
-        "shutter": "1/640s",
-        "lens": "FE 400mm F2.8 GM OSS + 1.4X Teleconverter",
-        "focalLength": "560mm",
-        "dateTaken": "2024-09-04T03:11:43.000Z",
-        "location": null
-      },
-      "createdAt": "2026-02-02T05:52:56.172Z"
+      "createdAt": "2026-02-02T06:01:54.212Z"
     },
     {
       "id": "Musk Lorikeet",
@@ -275,10 +255,10 @@
         "shutter": "1/1600s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-01-10T16:43:58.000Z",
+        "dateTaken": "2025-01-11T03:13:58.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.172Z"
+      "createdAt": "2026-02-02T06:01:54.214Z"
     },
     {
       "id": "Orang",
@@ -295,10 +275,10 @@
         "shutter": "1/200s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2024-06-12T04:58:10.000Z",
+        "dateTaken": "2024-06-12T14:28:10.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.173Z"
+      "createdAt": "2026-02-02T06:01:54.215Z"
     },
     {
       "id": "Owlet",
@@ -315,10 +295,10 @@
         "shutter": "1/160s",
         "lens": "FE 100-400mm F4.5-5.6 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-01-21T00:16:57.000Z",
+        "dateTaken": "2023-01-21T10:46:57.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.174Z"
+      "createdAt": "2026-02-02T06:01:54.217Z"
     },
     {
       "id": "Pelicon",
@@ -335,10 +315,10 @@
         "shutter": "1/1600s",
         "lens": "FE 400mm F2.8 GM OSS + 1.4X Teleconverter",
         "focalLength": "560mm",
-        "dateTaken": "2025-12-13T21:46:44.000Z",
+        "dateTaken": "2025-12-14T08:16:44.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.174Z"
+      "createdAt": "2026-02-02T06:01:54.218Z"
     },
     {
       "id": "Sunset",
@@ -355,10 +335,10 @@
         "shutter": "1/5000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-14T00:07:38.000Z",
+        "dateTaken": "2025-08-14T09:37:38.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.175Z"
+      "createdAt": "2026-02-02T06:01:54.220Z"
     },
     {
       "id": "Zebra",
@@ -375,10 +355,10 @@
         "shutter": "1/4000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-11T01:52:21.000Z",
+        "dateTaken": "2025-08-11T11:22:21.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.176Z"
+      "createdAt": "2026-02-02T06:01:54.222Z"
     },
     {
       "id": "leopard6",
@@ -395,10 +375,10 @@
         "shutter": "1/4000s",
         "lens": "FE 135mm F1.8 GM",
         "focalLength": "135mm",
-        "dateTaken": "2023-06-10T21:39:36.000Z",
+        "dateTaken": "2023-06-11T07:09:36.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.176Z"
+      "createdAt": "2026-02-02T06:01:54.224Z"
     },
     {
       "id": "leopard7",
@@ -415,10 +395,10 @@
         "shutter": "1/2500s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-11-07T02:16:53.000Z",
+        "dateTaken": "2023-11-07T12:46:53.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.177Z"
+      "createdAt": "2026-02-02T06:01:54.225Z"
     },
     {
       "id": "leopards5",
@@ -435,10 +415,30 @@
         "shutter": "1/640s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-06-29T07:39:33.000Z",
+        "dateTaken": "2023-06-29T17:09:33.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.178Z"
+      "createdAt": "2026-02-02T06:01:54.227Z"
+    },
+    {
+      "id": "lorikeet",
+      "filename": "lorikeet.jpg",
+      "category": "color",
+      "url": "/images/color/lorikeet.jpg",
+      "width": 5582,
+      "height": 4190,
+      "alt": "Lorikeet",
+      "metadata": {
+        "camera": "SONY ILCE-9M2",
+        "iso": 400,
+        "aperture": "f/4",
+        "shutter": "1/640s",
+        "lens": "FE 400mm F2.8 GM OSS + 1.4X Teleconverter",
+        "focalLength": "560mm",
+        "dateTaken": "2024-09-04T12:41:43.000Z",
+        "location": null
+      },
+      "createdAt": "2026-02-02T06:01:54.228Z"
     },
     {
       "id": "owl",
@@ -455,10 +455,10 @@
         "shutter": "1/500s",
         "lens": "FE 135mm F1.8 GM",
         "focalLength": "135mm",
-        "dateTaken": "2023-06-06T05:56:35.000Z",
+        "dateTaken": "2023-06-06T15:26:35.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.178Z"
+      "createdAt": "2026-02-02T06:01:54.230Z"
     },
     {
       "id": "bear",
@@ -475,10 +475,10 @@
         "shutter": "1/500s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-07-01T07:47:30.000Z",
+        "dateTaken": "2023-07-01T17:17:30.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.179Z"
+      "createdAt": "2026-02-02T06:01:54.232Z"
     },
     {
       "id": "blackcockatoo",
@@ -495,10 +495,10 @@
         "shutter": "1/500s",
         "lens": "FE 400mm F2.8 GM OSS + 1.4X Teleconverter",
         "focalLength": "560mm",
-        "dateTaken": "2024-12-13T15:14:38.000Z",
+        "dateTaken": "2024-12-14T01:44:38.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.180Z"
+      "createdAt": "2026-02-02T06:01:54.233Z"
     },
     {
       "id": "cheeta",
@@ -515,10 +515,10 @@
         "shutter": "1/1000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-13T02:06:01.000Z",
+        "dateTaken": "2025-08-13T11:36:01.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.180Z"
+      "createdAt": "2026-02-02T06:01:54.234Z"
     },
     {
       "id": "elephant",
@@ -535,10 +535,10 @@
         "shutter": "1/1000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-15T08:50:52.000Z",
+        "dateTaken": "2025-08-15T18:20:52.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.181Z"
+      "createdAt": "2026-02-02T06:01:54.235Z"
     },
     {
       "id": "leopard2",
@@ -555,10 +555,10 @@
         "shutter": "1/4000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-11-02T03:26:55.000Z",
+        "dateTaken": "2023-11-02T13:56:55.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.181Z"
+      "createdAt": "2026-02-02T06:01:54.237Z"
     },
     {
       "id": "leopard3",
@@ -575,10 +575,10 @@
         "shutter": "1/6400s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2023-03-08T21:40:54.000Z",
+        "dateTaken": "2023-03-09T08:10:54.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.182Z"
+      "createdAt": "2026-02-02T06:01:54.238Z"
     },
     {
       "id": "leopard4",
@@ -595,10 +595,10 @@
         "shutter": "1/1250s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-03-16T20:49:19.000Z",
+        "dateTaken": "2025-03-17T07:19:19.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.182Z"
+      "createdAt": "2026-02-02T06:01:54.239Z"
     },
     {
       "id": "leopards",
@@ -615,10 +615,10 @@
         "shutter": "1/1250s",
         "lens": "FE 135mm F1.8 GM",
         "focalLength": "135mm",
-        "dateTaken": "2019-04-16T19:29:31.000Z",
+        "dateTaken": "2019-04-17T04:59:31.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.183Z"
+      "createdAt": "2026-02-02T06:01:54.241Z"
     },
     {
       "id": "lion",
@@ -635,10 +635,10 @@
         "shutter": "1/400s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-13T00:03:04.000Z",
+        "dateTaken": "2025-08-13T09:33:04.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.184Z"
+      "createdAt": "2026-02-02T06:01:54.242Z"
     },
     {
       "id": "lion2",
@@ -655,10 +655,10 @@
         "shutter": "1/1250s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-11T00:39:12.000Z",
+        "dateTaken": "2025-08-11T10:09:12.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.184Z"
+      "createdAt": "2026-02-02T06:01:54.244Z"
     },
     {
       "id": "pecock",
@@ -675,10 +675,10 @@
         "shutter": "1/1000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-03-16T19:48:53.000Z",
+        "dateTaken": "2025-03-17T06:18:53.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.185Z"
+      "createdAt": "2026-02-02T06:01:54.245Z"
     },
     {
       "id": "rahino",
@@ -695,10 +695,10 @@
         "shutter": "1/400s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-10T09:38:02.000Z",
+        "dateTaken": "2025-08-10T19:08:02.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.185Z"
+      "createdAt": "2026-02-02T06:01:54.246Z"
     },
     {
       "id": "wildabeast",
@@ -715,10 +715,10 @@
         "shutter": "1/50s",
         "lens": "FE 135mm F1.8 GM",
         "focalLength": "135mm",
-        "dateTaken": "2019-04-16T20:28:55.000Z",
+        "dateTaken": "2019-04-17T05:58:55.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.186Z"
+      "createdAt": "2026-02-02T06:01:54.248Z"
     },
     {
       "id": "wildabeast2",
@@ -735,10 +735,10 @@
         "shutter": "1/1600s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-15T02:27:46.000Z",
+        "dateTaken": "2025-08-15T11:57:46.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.186Z"
+      "createdAt": "2026-02-02T06:01:54.250Z"
     },
     {
       "id": "zebra",
@@ -755,13 +755,13 @@
         "shutter": "1/4000s",
         "lens": "FE 400mm F2.8 GM OSS",
         "focalLength": "400mm",
-        "dateTaken": "2025-08-11T01:52:21.000Z",
+        "dateTaken": "2025-08-11T11:22:21.000Z",
         "location": null
       },
-      "createdAt": "2026-02-02T05:52:56.187Z"
+      "createdAt": "2026-02-02T06:01:54.251Z"
     }
   ],
-  "generatedAt": "2026-02-02T05:52:56.187Z",
+  "generatedAt": "2026-02-02T06:01:54.252Z",
   "totalImages": 38,
   "categories": {
     "color": 23,
